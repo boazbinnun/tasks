@@ -12,11 +12,6 @@
 *Zoho Desk Project*
 
 - [ ] **[Zoho] Internal Communication Guidance** - Send guidance: use Message feature in Zoho Desk + tag user for internal notes; change Owner to reassign tickets | raised by: Albert
-- [x] **[Zoho] Client Notifications** - Disable ALL automated emails to customers until system is stabilized | raised by: Albert | done: 2026-03-25
-- [x] **[Zoho] Team View for Philipp** - Created filtered view in Zoho Desk for Philipp's team | raised by: Philipp | done: 2026-03-25
-  - 🔗 https://desk.zoho.com/agent/dinvestbewirtschaftung/support/tickets/list/stweg-offen?view=table
-  - 📧 Email sent to Philipp
-- [x] **[Zoho] STWEG vs Rent Field** - Resolved via dedicated Philipp view (no separate field needed) | raised by: Philipp | done: 2026-03-25
 
 ## Follow-Up
 *Tasks assigned to others — Boaz monitors progress*
