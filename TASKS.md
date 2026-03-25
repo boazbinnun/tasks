@@ -7,7 +7,6 @@
 - [ ] **[Dinvest] Design Mockup for Tenant App (imofix replacement)** - Design a mockup for the Tenant App to replace imofix | Project: Dinvest Tenant App design (imofix alternative)
 
 - [ ] **[Power BI] Fix Owner Dashboard** - Fix Power BI owner dashboard based on Yariv's comments | due: 2026-03-25
-- [x] **[Linear] Write Ticket to Idan** - Linear ticket created for Idan: Zoho Desk UI fixes (phone format + ticket creator visibility) | done: 2026-03-25
 
 
 *Zoho Desk Project*
