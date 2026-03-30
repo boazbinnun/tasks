@@ -52,10 +52,13 @@
   - ✅ Demo done: **ImmoTrack**
   - ⏳ Awaiting demo: **Cedris** (Andeo AG)
 
-- [ ] **[Zoho] Support Email Architecture** - Setting up support@dinvest.ag as dedicated Zoho Desk mailbox; forwarding to support@dinvestbewirtschaftung.zohodesk.com | raised by: Albert
-  - ✅ Idan approved
-  - 📧 Email sent to Admir to set up support@dinvest.ag and configure forwarding to support@dinvestbewirtschaftung.zohodesk.com
-  - ⏳ Awaiting Admir confirmation — then continue setup & testing in Zoho Desk
+- [x] **[Zoho] Support Email Architecture (Reply-To Fix)** - Dedicated support@dinvest.ag mailbox connected to Zoho Desk, replacing info@dinvest.ag Reply-To that caused duplicate tickets via Triage Tool | raised by: Albert | done: 2026-03-30
+  - ✅ Diagnosed root cause: replies going to info@dinvest.ag → Triage Tool creating duplicates instead of threading
+  - ✅ Rejected per-agent email approach (would worsen the problem)
+  - ✅ Idan approved dedicated support@dinvest.ag solution
+  - ✅ Coordinated with Admir (BelCore IT / Shkumbin Zeqiri) — converted to shared mailbox with IMAP/SMTP after external forwarding & redirect were blocked by M365 policy
+  - ✅ Zoho Desk configured: support@dinvest.ag connected as verified From Address via Microsoft Outlook OAuth
+  - ✅ Forwarding tested & working — emails to support@dinvest.ag arrive as tickets in Zoho Desk
 
 - [ ] **[Dinvest / nvc.ch] Insurance Integration** - Thomas forwarded to François Eisele (group project manager, coordinates with BAYO). Thomas on holiday until 2026-04-20. Next Advisory Board meeting (14 broker CEOs) end of April. Follow up with François or wait for consolidated response. | since: 2026-03-24 | Project: Dinvest - nvc.ch insurance integration
   - 📧 thomas.keller@nvc.ch | **New contact: François Eisele** (project manager, coordinating with BAYO)
