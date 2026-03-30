@@ -31,14 +31,14 @@
 - [x] **[Onboarding App] Job Title → Security Template Mapping** → **Onboarding App / Admir (IT)** - Add feature to map each job title to a Microsoft security template; when Admir receives a new employee request, the correct security template is shown automatically | done: 2026-03-29
 
 - [x] **[Zoho] Holiday/Vacation Coverage** → **Idan** - Triage Agent & Call-to-Ticket vacation warning integration | done: 2026-03-29
-- [ ] **[Zoho] Phone Number Format** → **Idan** - Display phone numbers in Swiss format (+41 76 541 03 45) instead of raw format | raised by: Philipp | Linear ticket created: 2026-03-25
+- [x] **[Zoho] Phone Number Format** → **Idan** - Display phone numbers in Swiss format (+41 76 541 03 45) instead of raw format | raised by: Philipp | Linear ticket created: 2026-03-25 | done: 2026-03-30
 - [x] **[Zoho] Ticket Creator Visibility** → **Idan** - Show actual ticket creator (Ali, Tobias, Triage Agent) instead of Idan; consider adding a new field | raised by: Olivier | Linear ticket created: 2026-03-25 | done: 2026-03-29
   - ✅ Deployed in Portal Release 2026-03-29: tickets now created on behalf of the original sender
 - [ ] **[Power BI] Owner Dashboard KPI Fields** → **Idan** - Add 6 new Netto-based KPI fields + rename 2 existing ones + retire 6 old Brutto/Akonto cards | Linear ticket created: 2026-03-25
   - 🆕 New: Ist-Ertrag Netto /Monat & /Jahr, Leerstand Netto /Monat & /Jahr, Leerstandsquote %, Anzahl Leerstände
   - ✏️ Rename: current Netto/Monat → Potenzial Netto/Monat; Netto/Jahr → Potenzial Netto/Jahr
   - 🗑️ Remove: Akonto & Brutto cards (×3 monthly + ×3 yearly)
-- [ ] **[Zoho] Email Reply Thread** → **Idan** - Development task already planned; implement fix in email threading | raised by: Albert
+- [x] **[Zoho] Email Reply Thread** → **Idan** - Development task already planned; implement fix in email threading | raised by: Albert | done: 2026-03-30
 - [ ] **[Zoho] Ticket Routing Rules** → **Philipp → Olivier → Idan** - Philipp sends current routing rules to Olivier; Olivier reviews and forwards to Idan; Idan implements | raised by: Philipp
 - [x] **[Zoho] Phone Ticket Data Quality** → **Olivier** - Already addressed via Phone AI Processing training (same action) | raised by: Miriam | done: 2026-03-29
   - ✅ Training completed earlier; Call-to-Ticket category field mapping also fixed in Portal Release 2026-03-29
