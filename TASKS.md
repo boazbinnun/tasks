@@ -4,20 +4,33 @@
 *Boaz's own tasks*
 
 
-- [x] **[Internal] Create Claude Presentation for Team** - Prepare and present a presentation on Claude to the team | done: 2026-03-29
+- [ ] **[Internal] Create Claude Presentation for Team** - Prepare and present a presentation on Claude to the team | added: 2026-03-29
+  - [x] Presented to Yariv & Itay ✅
+  - [ ] Showcase meeting still needed with Olivier
+
+- [ ] **[Dinvest] Owner Portal Mockup — Fine-Tuning & Dev Handoff** - Mockup in final stages; work with Yariv to fine-tune and prepare for development phase | added: 2026-04-07
+  - 🔗 Mockup: https://owner-portal-mockup.lovable.app/
+  - 👤 Working with: Yariv
+  - 🎯 Next step: review with Yariv → finalize → hand off to dev
+
+- [ ] **[Dinvest M&A] Build M&A Process Management CRM** - A CRM app enabling external brokers and Dinvest management to manage acquisitions and mergers with other property management companies | added: 2026-04-07
+  - 🎯 Covers full M&A pipeline: deal sourcing, broker collaboration, due diligence, and closing
+  - ⚙️ Mockup started in Claude Code — needs to be finished
+  - 👥 Users: external brokers + Dinvest management
 
 - [ ] **[Marketing] Redesign Homepage** - Redesign the homepage based on new AI messaging | added: 2026-03-25
+  - 🔗 Mockup: https://assets.dinvest.ag/documents/hompage-ai-mockaup-1.html
 
 - [ ] **[Dinvest] Reporting Walkthrough with Ruslan & David** - Demo meeting on Thursday 2026-04-09. Walk through Power BI + WW Portal live (screen share). | introduced by: Yariv | added: 2026-03-31
   - 📧 Ruslan Marakhovskii (David's accountant, scheduling contact)
   - 👤 David Gast (portfolio owner, based in NY)
   - 🎯 Demo current reports (1 month of data) + present upcoming developments & mockups
   - ⚠️ **Pre-meeting checklist (before Thursday):**
-    - [ ] Verify David Gast has login access to Power BI
-    - [ ] Verify Ruslan has login access to Power BI
-    - [ ] Verify David Gast has login access to WW Portal
-    - [ ] Verify Ruslan has login access to WW Portal
-    - [ ] Test screen share setup before the call
+    - [x] Verify David Gast has login access to Power BI ✅ confirmed 2026-04-07
+    - [x] Verify Ruslan has login access to Power BI ✅ confirmed 2026-04-07
+    - [x] Verify David Gast has login access to WW Portal ✅ confirmed 2026-04-07
+    - [x] Verify Ruslan has login access to WW Portal ✅ confirmed 2026-04-07
+    - [x] Test screen share setup before the call ✅ done 2026-04-07
 
 - [x] **[Dinvest] Design Mockup for Tenant App (imofix replacement)** - Working mockup + full product documentation built. Replaces Zoho checklists for move-outs and building onboarding. Live at: https://dinvest-portal.vercel.app | done: 2026-04-06
 

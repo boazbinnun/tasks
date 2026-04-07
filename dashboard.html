@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boaz – Task Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  /* WELCOME SCREEN */
+  #welcome {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    min-height: 100vh; text-align: center; padding: 32px;
+  }
+  #welcome h1 { font-size: 2rem; margin-bottom: 10px; }
+  #welcome p  { color: #6b7280; margin-bottom: 32px; font-size: 1rem; max-width: 400px; line-height: 1.6; }
+  .open-btn {
+    background: #1a1a2e; color: white; border: none;
+    padding: 14px 32px; border-radius: 10px; font-size: 1rem;
+    cursor: pointer; transition: background 0.2s, transform 0.1s;
+  }
+  .open-btn:hover { background: #16213e; transform: translateY(-1px); }
+  .hint { margin-top: 16px; font-size: 0.8rem; color: #9ca3af; }
+
+  /* DASHBOARD */
+  #dashboard { display: none; }
+
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white; padding: 18px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2); flex-wrap: wrap; gap: 10px;
+  }
+  header h1 { font-size: 1.3rem; font-weight: 600; }
+  header .subtitle { font-size: 0.75rem; opacity: 0.55; margin-top: 2px; }
+  .header-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .btn-row { display: flex; gap: 8px; }
+  .hdr-btn {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    color: white; padding: 6px 14px; border-radius: 8px;
+    cursor: pointer; font-size: 0.8rem; transition: background 0.2s;
+  }
+  .hdr-btn:hover { background: rgba(255,255,255,0.22); }
+  .last-updated { font-size: 0.7rem; opacity: 0.45; }
+
+  .stats-bar {
+    background: white; border-bottom: 1px solid #e5e7eb;
+    padding: 10px 28px; display: flex; gap: 24px;
+    overflow-x: auto; flex-wrap: wrap;
+  }
+  .stat { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+  .stat-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .stat-label { font-size: 0.78rem; color: #6b7280; }
+  .stat-count { font-size: 0.88rem; font-weight: 700; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
+  .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 700px) { .columns { grid-template-columns: 1fr; } }
+
+  .section { margin-bottom: 22px; }
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .section-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b7280; }
+  .section-badge { font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #e5e7eb; color: #374151; }
+
+  .card {
+    background: white; border-radius: 10px; padding: 13px 15px; margin-bottom: 8px;
+    border-left: 3px solid transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-1px); }
+  .card.active   { border-left-color: #3b82f6; }
+  .card.followup { border-left-color: #8b5cf6; }
+  .card.waiting  { border-left-color: #f59e0b; }
+  .card.done     { border-left-color: #10b981; opacity: 0.6; }
+  .card.someday  { border-left-color: #9ca3af; }
+
+  .card-title { font-size: 0.88rem; font-weight: 600; color: #111827; line-height: 1.4; margin-bottom: 3px; }
+  .card.done .card-title { text-decoration: line-through; color: #6b7280; }
+  .card-desc { font-size: 0.78rem; color: #6b7280; line-height: 1.5; }
+
+  .tag {
+    display: inline-block; font-size: 0.65rem; font-weight: 700;
+    padding: 2px 6px; border-radius: 4px; margin-right: 5px; margin-bottom: 3px;
+    text-transform: uppercase; letter-spacing: 0.3px;
+  }
+  .tag-zoho    { background: #dbeafe; color: #1d4ed8; }
+  .tag-dinvest { background: #d1fae5; color: #065f46; }
+  .tag-linear  { background: #ede9fe; color: #5b21b6; }
+  .tag-powerbi { background: #fef3c7; color: #92400e; }
+  .tag-other   { background: #f3f4f6; color: #374151; }
+
+  .card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 7px; }
+  .assignee    { font-size: 0.73rem; color: #8b5cf6; font-weight: 600; }
+  .due-badge   { font-size: 0.68rem; padding: 2px 7px; border-radius: 999px; font-weight: 600; }
+  .due-today   { background: #fee2e2; color: #b91c1c; }
+  .due-ok      { background: #d1fae5; color: #065f46; }
+  .raised-by   { font-size: 0.7rem; color: #9ca3af; }
+  .since-badge { font-size: 0.7rem; color: #d97706; font-weight: 500; }
+  .extra-info  { font-size: 0.73rem; color: #6b7280; margin-top: 6px; padding-top: 6px; border-top: 1px solid #f3f4f6; }
+  .empty-state { text-align: center; padding: 28px; color: #9ca3af; font-size: 0.83rem; }
+  .full-width  { grid-column: 1 / -1; }
+  .error-banner { background: #fee2e2; color: #b91c1c; padding: 12px 20px; font-size: 0.85rem; display: none; }
+</style>
+</head>
+<body>
+
+<!-- WELCOME SCREEN -->
+<div id="welcome">
+  <div style="font-size:3rem;margin-bottom:16px">📋</div>
+  <h1>Boaz's Task Dashboard</h1>
+  <p>Click below to select your <strong>TASKS.md</strong> file. The dashboard reads it directly from your computer — nothing is uploaded anywhere.</p>
+  <button class="open-btn" onclick="openFile()">📂 Open TASKS.md</button>
+  <div class="hint">You'll only need to do this once per browser session.</div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <header>
+    <div>
+      <h1>📋 Boaz — Task Dashboard</h1>
+      <div class="subtitle" id="filePath">Reading from local file</div>
+    </div>
+    <div class="header-actions">
+      <div class="btn-row">
+        <button class="hdr-btn" onclick="refresh()">↻ Refresh</button>
+        <button class="hdr-btn" onclick="changeFile()">📂 Change File</button>
+      </div>
+      <div class="last-updated" id="lastUpdated">–</div>
+    </div>
+  </header>
+
+  <div class="error-banner" id="errorBanner"></div>
+
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-dot" style="background:#3b82f6"></div><span class="stat-label">Active</span><span class="stat-count" id="cnt-active">–</span></div>
+    <div class="stat"><div class="stat-dot" style="background:#8b5cf6"></div><span class="stat-label">Follow-Up</span><span class="stat-count" id="cnt-followup">–</span></div>
+    <div class="stat"><div class="stat-dot" style="background:#f59e0b"></div><span class="stat-label">Waiting</span><span class="stat-count" id="cnt-waiting">–</span></div>
+    <div class="stat"><div class="stat-dot" style="background:#9ca3af"></div><span class="stat-label">Someday</span><span class="stat-count" id="cnt-someday">–</span></div>
+    <div class="stat"><div class="stat-dot" style="background:#10b981"></div><span class="stat-label">Done</span><span class="stat-count" id="cnt-done">–</span></div>
+  </div>
+
+  <div class="container">
+    <div class="columns">
+      <div>
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">🔵 Active — My Tasks</span>
+            <span class="section-badge" id="badge-active">0</span>
+          </div>
+          <div id="section-active"></div>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">🟡 Waiting On</span>
+            <span class="section-badge" id="badge-waiting">0</span>
+          </div>
+          <div id="section-waiting"></div>
+        </div>
+      </div>
+      <div>
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">🟣 Follow-Up</span>
+            <span class="section-badge" id="badge-followup">0</span>
+          </div>
+          <div id="section-followup"></div>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">⚫ Someday</span>
+            <span class="section-badge" id="badge-someday">0</span>
+          </div>
+          <div id="section-someday"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section full-width">
+      <div class="section-header">
+        <span class="section-title">✅ Done</span>
+        <span class="section-badge" id="badge-done">0</span>
+      </div>
+      <div id="section-done"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+let fileHandle = null;
+const TODAY = new Date().toISOString().split('T')[0];
+
+async function openFile() {
+  try {
+    [fileHandle] = await window.showOpenFilePicker({
+      types: [{ description: 'Markdown', accept: { 'text/markdown': ['.md'], 'text/plain': ['.md', '.txt'] } }],
+      multiple: false
+    });
+    document.getElementById('welcome').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    document.getElementById('filePath').textContent = '📄 ' + fileHandle.name;
+    await refresh();
+    setInterval(refresh, 30000);
+  } catch (e) {
+    if (e.name !== 'AbortError') alert('Could not open file: ' + e.message);
+  }
+}
+
+async function changeFile() {
+  fileHandle = null;
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('welcome').style.display = 'flex';
+}
+
+async function refresh() {
+  if (!fileHandle) return;
+  try {
+    const file = await fileHandle.getFile();
+    const text = await file.text();
+    renderAll(parseTasks(text));
+    document.getElementById('lastUpdated').textContent = 'Updated ' + new Date().toLocaleTimeString();
+    document.getElementById('errorBanner').style.display = 'none';
+  } catch (e) {
+    const b = document.getElementById('errorBanner');
+    b.style.display = 'block';
+    b.textContent = 'Could not read file: ' + e.message;
+  }
+}
+
+// ── PARSER ──────────────────────────────────────────────
+function parseTasks(md) {
+  const sections = { active: [], followup: [], waiting: [], someday: [], done: [] };
+  const sectionMap = {
+    '## active': 'active', '## follow-up': 'followup',
+    '## waiting on': 'waiting', '## someday': 'someday', '## done': 'done'
+  };
+  let current = null, item = null, extras = [];
+
+  function flush() {
+    if (item && current) { item.extra = extras.join(' · '); sections[current].push(item); }
+    item = null; extras = [];
+  }
+
+  for (const raw of md.split('\n')) {
+    const isIndented = /^\s+/.test(raw);
+    const line = raw.trim();
+    let matched = null;
+    for (const [k, v] of Object.entries(sectionMap))
+      if (line.toLowerCase().startsWith(k)) { matched = v; break; }
+    if (matched) { flush(); current = matched; continue; }
+    if (!current) continue;
+
+    const task = !isIndented && line.match(/^- \[([ x])\] (.+)$/);
+    if (task) {
+      flush();
+      const r = task[2];
+      let title = r, desc = '', assignee = '';
+      const m1 = r.match(/^(.+?) → \*\*(.+?)\*\* - (.+)$/);
+      const m2 = r.match(/^(.+?) → \*\*(.+?)\*\*$/);
+      const m3 = r.match(/^(.+?) - (.+)$/);
+      if (m1)      { title = m1[1]; assignee = m1[2]; desc = m1[3]; }
+      else if (m2) { title = m2[1]; assignee = m2[2]; }
+      else if (m3) { title = m3[1]; desc = m3[2]; }
+
+      const get = (rx) => { const m = desc.match(rx); return m ? m[1].trim().replace(/,\s*$/, '') : null; };
+      item = {
+        title,
+        desc: desc.replace(/\|?\s*(due|raised by|since|done|Project):\s*[^|]+/gi, '').trim().replace(/^\||\|$/g, '').trim(),
+        assignee,
+        due:      get(/due:\s*(\S+)/),
+        raisedBy: get(/raised by:\s*([^|]+?)(?:\s*\||$)/),
+        since:    get(/since:\s*(\S+)/),
+        done:     get(/done:\s*(\S+)/),
+        extra: ''
+      };
+      continue;
+    }
+    if (line.startsWith('- ') && item) extras.push(line.slice(2));
+  }
+  flush();
+  return sections;
+}
+
+// ── RENDERER ─────────────────────────────────────────────
+function getTag(title) {
+  const t = title.toUpperCase();
+  if (t.includes('[ZOHO]'))     return '<span class="tag tag-zoho">Zoho</span>';
+  if (t.includes('[DINVEST]'))  return '<span class="tag tag-dinvest">Dinvest</span>';
+  if (t.includes('[LINEAR]'))   return '<span class="tag tag-linear">Linear</span>';
+  if (t.includes('[POWER BI]')) return '<span class="tag tag-powerbi">Power BI</span>';
+  const m = title.match(/\[([^\]]+)\]/);
+  return m ? `<span class="tag tag-other">${m[1]}</span>` : '';
+}
+
+function cleanTitle(t) { return t.replace(/\*\*/g, '').replace(/\[[^\]]+\]\s*/g, '').trim(); }
+
+function dueBadge(due) {
+  if (!due) return '';
+  return due <= TODAY
+    ? `<span class="due-badge due-today">${due === TODAY ? 'Due today' : 'Overdue: ' + due}</span>`
+    : `<span class="due-badge due-ok">Due ${due}</span>`;
+}
+
+function makeCard(item, type) {
+  return `<div class="card ${type}">
+    <div>${getTag(item.title)}<span class="card-title">${cleanTitle(item.title)}</span></div>
+    ${item.desc ? `<div class="card-desc">${item.desc}</div>` : ''}
+    <div class="card-meta">
+      ${dueBadge(item.due)}
+      ${item.assignee ? `<span class="assignee">→ ${item.assignee}</span>` : ''}
+      ${item.since    ? `<span class="since-badge">since ${item.since}</span>` : ''}
+      ${item.raisedBy ? `<span class="raised-by">↑ ${item.raisedBy}</span>` : ''}
+      ${item.done     ? `<span class="raised-by">✓ ${item.done}</span>` : ''}
+    </div>
+    ${item.extra ? `<div class="extra-info">${item.extra}</div>` : ''}
+  </div>`;
+}
+
+function renderSection(id, badgeId, items, type) {
+  document.getElementById(badgeId).textContent = items.length;
+  document.getElementById(id).innerHTML = items.length
+    ? items.map(i => makeCard(i, type)).join('')
+    : '<div class="empty-state">Nothing here 🎉</div>';
+}
+
+function renderAll(data) {
+  document.getElementById('cnt-active').textContent   = data.active.length;
+  document.getElementById('cnt-followup').textContent = data.followup.length;
+  document.getElementById('cnt-waiting').textContent  = data.waiting.length;
+  document.getElementById('cnt-someday').textContent  = data.someday.length;
+  document.getElementById('cnt-done').textContent     = data.done.length;
+  renderSection('section-active',   'badge-active',   data.active,   'active');
+  renderSection('section-followup', 'badge-followup', data.followup, 'followup');
+  renderSection('section-waiting',  'badge-waiting',  data.waiting,  'waiting');
+  renderSection('section-someday',  'badge-someday',  data.someday,  'someday');
+  renderSection('section-done',     'badge-done',     data.done,     'done');
+}
+</script>
+</body>
+</html>
