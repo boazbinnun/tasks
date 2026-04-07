@@ -8,7 +8,24 @@
 
 - [ ] **[Marketing] Redesign Homepage** - Redesign the homepage based on new AI messaging | added: 2026-03-25
 
-- [ ] **[Dinvest] Design Mockup for Tenant App (imofix replacement)** - Design a mockup for the Tenant App to replace imofix | Project: Dinvest Tenant App design (imofix alternative)
+- [ ] **[Dinvest] Reporting Walkthrough with Ruslan & David** - Demo meeting on Thursday 2026-04-09. Walk through Power BI + WW Portal live (screen share). | introduced by: Yariv | added: 2026-03-31
+  - 📧 Ruslan Marakhovskii (David's accountant, scheduling contact)
+  - 👤 David Gast (portfolio owner, based in NY)
+  - 🎯 Demo current reports (1 month of data) + present upcoming developments & mockups
+  - ⚠️ **Pre-meeting checklist (before Thursday):**
+    - [ ] Verify David Gast has login access to Power BI
+    - [ ] Verify Ruslan has login access to Power BI
+    - [ ] Verify David Gast has login access to WW Portal
+    - [ ] Verify Ruslan has login access to WW Portal
+    - [ ] Test screen share setup before the call
+
+- [x] **[Dinvest] Design Mockup for Tenant App (imofix replacement)** - Working mockup + full product documentation built. Replaces Zoho checklists for move-outs and building onboarding. Live at: https://dinvest-portal.vercel.app | done: 2026-04-06
+
+- [x] **[Dinvest] Open Linear Ticket for Idan — Tenant App** - Linear ticket opened with PRDs, Excel task lists, and all supporting files for the new checklist system (move-out + building onboarding) | done: 2026-04-06
+
+- [ ] **[Dinvest] Open Linear Ticket for Idan — Migrate Owners Data from Zoho to Inhouse Hub** - Create Linear ticket for Idan to migrate all owner data from Zoho into the inhouse hub | added: 2026-04-06
+
+- [ ] **[Dinvest Checklisten] Write Technical Spec — MandateOnboarding (Mandatsaufnahme)** - Design docs complete; write Technical Spec so Idan can start building the POC checklist tool for onboarding new property mandates | added: 2026-04-07
 
 - [ ] **[Power BI] Fix Owner Dashboard** - Fix Power BI owner dashboard based on Yariv's comments | due: 2026-03-25
   - ✅ KPI design spec completed + Linear ticket created for Idan: 2026-03-25
@@ -17,7 +34,7 @@
 
 *Zoho Desk Project*
 
-- [ ] **[Zoho] Internal Communication Guidance** - Send guidance: use Message feature in Zoho Desk + tag user for internal notes; change Owner to reassign tickets | raised by: Albert
+- [x] **[Zoho] Internal Communication Guidance** - Send guidance: use Message feature in Zoho Desk + tag user for internal notes; change Owner to reassign tickets | raised by: Albert | done: 2026-04-07
 
 ## Follow-Up
 *Tasks assigned to others — Boaz monitors progress*
@@ -39,18 +56,35 @@
   - ✏️ Rename: current Netto/Monat → Potenzial Netto/Monat; Netto/Jahr → Potenzial Netto/Jahr
   - 🗑️ Remove: Akonto & Brutto cards (×3 monthly + ×3 yearly)
 - [x] **[Zoho] Email Reply Thread** → **Idan** - Development task already planned; implement fix in email threading | raised by: Albert | done: 2026-03-30
+- [ ] **[Dinvest] Move-Out Checklist Process** → **Olivier** - Walk through new checklist system (move-out + building onboarding) with Olivier when he's back. App is live at https://dinvest-portal.vercel.app | added: 2026-04-05
+
+- [ ] **[Dinvest Checklisten] Build Mieterwechsel — Production** → **Idan** - Hand off TenantTurnover (Mieterwechsel) POC to Idan for production build. Requires: PostgreSQL backend, auth, role-based access, deploy to inhouse.dinvest.ag | POC: https://mieterwechsel-poc.vercel.app | added: 2026-04-07
+  - ⚠️ Blocked until Miriam answers 5 open process questions (Phase 3 / Kaution scope) — email sent 2026-04-06
+
+- [ ] **[Dinvest Checklisten] Build MandateOnboarding POC** → **Idan** - Hand off MandateOnboarding (Mandatsaufnahme) to Idan once Technical Spec is written | added: 2026-04-07
+  - ⚠️ Blocked until Technical Spec is complete (Boaz's task)
+
 - [ ] **[Zoho] Ticket Routing Rules** → **Philipp → Olivier → Idan** - Philipp sends current routing rules to Olivier; Olivier reviews and forwards to Idan; Idan implements | raised by: Philipp
 - [x] **[Zoho] Phone Ticket Data Quality** → **Olivier** - Already addressed via Phone AI Processing training (same action) | raised by: Miriam | done: 2026-03-29
   - ✅ Training completed earlier; Call-to-Ticket category field mapping also fixed in Portal Release 2026-03-29
 
 ## Waiting On
 
-- [ ] **[Dinvest] Facility Management Software Research** - Evaluating FM software solutions for a joint venture in Swiss real estate. Reached out to Mr. Hoffmann at Vebego for recommendations — referred by David Wolfensberger (W&W Immo Informatik). | since: 2026-03-25
-  - 📧 Outreach email sent to Vebego contact (Mr. Hoffmann) — awaiting reply
-  - 🔗 Referral: David Wolfensberger, W&W Immo Informatik
+- [ ] **[Dinvest Checklisten] Miriam — Open Process Questions (Mieterwechsel Phase 3 / Kaution)** - Waiting for Miriam (operations) to answer 5 open questions about Phase 3 / Kaution scope before Mieterwechsel task list can be fully finalized | email sent: 2026-04-06
+  - ⏳ Unblock: Idan's production handoff for Mieterwechsel depends on this
+
+- [ ] **[Dinvest] Facility Management Software Research** - Evaluating FM software solutions for a joint venture in Swiss real estate. | since: 2026-03-25
+  - 🔗 Referral source: David Wolfensberger, W&W Immo Informatik
   - 🎯 Goal: identify proven FM platforms suited to Swiss property management market
+  - ⚠️ Note (from Oliver Hofmann): cleaning vs. janitor services usually require **two separate systems** — keep this in mind when evaluating
   - ✅ Demo done: **ImmoTrack**
-  - ⏳ Awaiting demo: **Cedris** (Andeo AG)
+  - ⏳ **Cedris demo** — rescheduling in German; Olivier coordinating | Contact: Roger Baumgartner, Key Account Manager, Andeo AG | 📞 +41 52 511 08 10 / +41 79 859 05 00 | 📧 baumgartner@andeo.ch
+  - ✅ Reply received from **Oliver Hofmann, CEO Vebego AG** — recommends consulting firms for FM market overview:
+    - **pom+** → contact: Fabio Staub
+    - **AlphaIC** → contact: Roger Krieg
+    - **drees&sommer** → contact unknown
+  - [ ] Reach out to Fabio Staub (pom+) for FM software guidance
+  - [ ] Reach out to Roger Krieg (AlphaIC) for FM software guidance
 
 - [x] **[Zoho] Support Email Architecture (Reply-To Fix)** - Dedicated support@dinvest.ag mailbox connected to Zoho Desk, replacing info@dinvest.ag Reply-To that caused duplicate tickets via Triage Tool | raised by: Albert | done: 2026-03-30
   - ✅ Diagnosed root cause: replies going to info@dinvest.ag → Triage Tool creating duplicates instead of threading
