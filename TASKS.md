@@ -55,8 +55,9 @@
 
 - [ ] **[Dinvest] Move-Out Checklist Process** → **Olivier** - Walk through new checklist system (move-out + building onboarding) with Olivier when he's back. App is live at https://dinvest-portal.vercel.app | added: 2026-04-05 | updated: 2026-04-05
 
-- [ ] **[Dinvest Checklisten] Build Mieterwechsel — Production** → **Idan** - Hand off TenantTurnover (Mieterwechsel) POC to Idan for production build. Requires: PostgreSQL backend, auth, role-based access, deploy to inhouse.dinvest.ag | POC: https://mieterwechsel-poc.vercel.app | added: 2026-04-07 | updated: 2026-04-07
-  - ⚠️ Blocked until Miriam answers 5 open process questions (Phase 3 / Kaution scope) — email sent 2026-04-06
+- [ ] **[Dinvest Checklisten] Build Mieterwechsel — Production** → **Idan** - Hand off TenantTurnover (Mieterwechsel) POC to Idan for production build. Requires: PostgreSQL backend, auth, role-based access, deploy to inhouse.dinvest.ag | POC: https://mieterwechsel-poc.vercel.app | added: 2026-04-07 | updated: 2026-04-14
+  - ✅ Miriam answered all 5 process questions 2026-04-14 — blocker resolved
+  - 📝 Key answers: 1 doc for multi-object tenants; kaution only for Wohnungen & Gewerbe (never Einstellplatz); Einstellplatz process = confirm cancellation → keys returned → done; main combos are Wohnung + Einstellplatz
 
 - [ ] **[Dinvest Checklisten] Build MandateOnboarding POC** → **Idan** - Hand off MandateOnboarding (Mandatsaufnahme) to Idan once Technical Spec is written | added: 2026-04-07 | updated: 2026-04-07
   - ⚠️ Blocked until Technical Spec is complete (Boaz's task)
@@ -65,8 +66,6 @@
 
 ## Waiting On
 
-- [ ] **[Dinvest Checklisten] Miriam — Open Process Questions (Mieterwechsel Phase 3 / Kaution)** - Waiting for Miriam (operations) to answer 5 open questions about Phase 3 / Kaution scope before Mieterwechsel task list can be fully finalized | email sent: 2026-04-06 | updated: 2026-04-06
-  - ⏳ Unblock: Idan's production handoff for Mieterwechsel depends on this
 
 - [ ] **[Dinvest] Facility Management Software Research** - Evaluating FM software solutions for a joint venture in Swiss real estate. | since: 2026-03-25 | updated: 2026-04-14
   - 🔗 Referral source: David Wolfensberger, W&W Immo Informatik
