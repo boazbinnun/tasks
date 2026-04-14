@@ -28,7 +28,8 @@
 - [ ] **[Marketing] Redesign Homepage** - Redesign the homepage based on new AI messaging | added: 2026-03-25 | updated: 2026-03-25
   - 🔗 Mockup: https://assets.dinvest.ag/documents/hompage-ai-mockaup-1.html
 
-- [ ] **[Dinvest] Open Linear Ticket for Idan — Migrate Owners Data from Zoho to Inhouse Hub** - Create Linear ticket for Idan to migrate all owner data from Zoho into the inhouse hub | added: 2026-04-06 | updated: 2026-04-06
+- [x] **[Dinvest] Open Linear Ticket for Idan — Migrate Owners Data from Zoho to Inhouse Hub** - Create Linear ticket for Idan to migrate all owner data from Zoho into the inhouse hub | done: 2026-04-14 | updated: 2026-04-14
+  - 🔗 https://linear.app/idanc/issue/DIN-444/add-the-following-fields-to-the-owner-object-in-the-hub
 
 - [ ] **[Dinvest Checklisten] Write Technical Spec — MandateOnboarding (Mandatsaufnahme)** - Design docs complete; write Technical Spec so Idan can start building the POC checklist tool for onboarding new property mandates | added: 2026-04-07 | updated: 2026-04-07
 
