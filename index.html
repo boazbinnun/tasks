@@ -312,6 +312,13 @@
       line-height: 1.5;
     }
 
+    .task-link {
+      color: #3b82f6;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .task-link:hover { text-decoration: underline; }
+
     /* Empty / Loading */
     .empty-col {
       background: #fff;
@@ -736,7 +743,7 @@
         for (const item of task.subItems) {
           const el = document.createElement('div');
           el.className = 'sub-item';
-          el.textContent = item;
+          el.innerHTML = linkify(item);
           sub.appendChild(el);
         }
         card.appendChild(sub);
@@ -914,6 +921,26 @@
     // ─────────────────────────────────────────────────────────────────
     function escHtml(str) {
       return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // LINKIFY  — turns bare URLs in text into clickable <a> tags
+    // ─────────────────────────────────────────────────────────────────
+    function linkify(text) {
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      const result = [];
+      let lastIndex = 0;
+      let match;
+      while ((match = urlRegex.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+          result.push(escHtml(text.slice(lastIndex, match.index)));
+        }
+        const url = match[1];
+        result.push(`<a href="${escHtml(url)}" target="_blank" rel="noopener noreferrer" class="task-link">${escHtml(url)}</a>`);
+        lastIndex = match.index + url.length;
+      }
+      if (lastIndex < text.length) result.push(escHtml(text.slice(lastIndex)));
+      return result.join('');
     }
 
     // ─────────────────────────────────────────────────────────────────
