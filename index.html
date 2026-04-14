@@ -319,6 +319,19 @@
     }
     .task-link:hover { text-decoration: underline; }
 
+    /* Task number badge */
+    .task-num {
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      background: #1e293b;
+      color: #94a3b8;
+      padding: 2px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
     /* Empty / Loading */
     .empty-col {
       background: #fff;
@@ -599,18 +612,19 @@
           const parts       = descAndMeta.split(' | ');
           const description = parts[0] || '';
 
-          let dueDate = null, raisedBy = null, since = null, doneDate = null, updatedDate = null;
+          let dueDate = null, raisedBy = null, since = null, doneDate = null, updatedDate = null, taskId = null;
           for (const p of parts.slice(1)) {
             const v = p.trim();
-            if (v.startsWith('due: '))      dueDate     = v.slice(5).trim();
-            if (v.startsWith('done: '))     doneDate    = v.slice(6).trim();
-            if (v.startsWith('raised by: ')) raisedBy   = v.slice(11).trim();
-            if (v.startsWith('since: '))    since       = v.slice(7).trim();
-            if (v.startsWith('updated: '))  updatedDate = v.slice(9).trim();
+            if (/^#\d+$/.test(v))            taskId      = v;
+            if (v.startsWith('due: '))        dueDate     = v.slice(5).trim();
+            if (v.startsWith('done: '))       doneDate    = v.slice(6).trim();
+            if (v.startsWith('raised by: '))  raisedBy    = v.slice(11).trim();
+            if (v.startsWith('since: '))      since       = v.slice(7).trim();
+            if (v.startsWith('updated: '))    updatedDate = v.slice(9).trim();
           }
 
           task = { done, title: cleanTitle, project, assignee, description,
-                   dueDate, raisedBy, since, doneDate, updatedDate, subItems: [] };
+                   dueDate, raisedBy, since, doneDate, updatedDate, taskId, subItems: [] };
           sec.tasks.push(task);
           continue;
         }
@@ -670,9 +684,16 @@
       const card = document.createElement('div');
       card.className = `task-card ${cls}`;
 
-      // Top: badge + title
+      // Top: num + badge + title
       const top = document.createElement('div');
       top.className = 'card-top';
+
+      if (task.taskId) {
+        const num = document.createElement('span');
+        num.className = 'task-num';
+        num.textContent = task.taskId;
+        top.appendChild(num);
+      }
 
       if (task.project) {
         const badge = document.createElement('span');
@@ -687,11 +708,11 @@
       top.appendChild(title);
       card.appendChild(top);
 
-      // Description
+      // Description (linkified)
       if (task.description) {
         const desc = document.createElement('div');
         desc.className = 'task-description';
-        desc.textContent = task.description;
+        desc.innerHTML = linkify(task.description);
         card.appendChild(desc);
       }
 
