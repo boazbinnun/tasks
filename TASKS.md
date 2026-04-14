@@ -80,10 +80,12 @@
   - [ ] Reach out to Fabio Staub (pom+) for FM software guidance
   - [ ] Reach out to Roger Krieg (AlphaIC) for FM software guidance
 
-- [ ] **[Dinvest / nvc.ch] Insurance Integration** - Thomas forwarded to François Eisele (group project manager, coordinates with BAYO). Thomas on holiday until 2026-04-20. Next Advisory Board meeting (14 broker CEOs) end of April. Follow up with François or wait for consolidated response. | #16 | since: 2026-03-24 | updated: 2026-04-14
-  - 📧 thomas.keller@nvc.ch | **New contact: François Eisele** (project manager, coordinating with BAYO)
-  - 📞 +41 61 227 95 84 (Thomas, direct)
+- [ ] **[Dinvest / nvc.ch] Insurance Integration** - Thomas forwarded to François Eisele (group project manager, coordinates with BAYO). Thomas on holiday until 2026-04-20. Boaz followed up with Thomas on 2026-04-14 — François not yet responsive. Next Advisory Board meeting (14 broker CEOs) end of April. | #16 | since: 2026-03-24 | updated: 2026-04-14
+  - 📧 thomas.keller@nvc.ch | 📞 +41 61 227 95 84 (Thomas, direct)
+  - 👤 **François Eisele** — group project manager, coordinates with BAYO (no response yet)
   - 🔑 BAYO = their system provider (API/integration docs requested)
-  - ⏳ Thomas OOO until 2026-04-20 | Advisory Board end of April
+  - ⏳ Thomas OOO until 2026-04-20 — follow up after he's back if François still silent
+  - 📋 Integration scope (3 areas): 1) Claims submission — structured digital format from our platform to NVC; 2) Policy data — all 212 properties' insurance data in structured format; 3) Status tracking — claim progress without back-and-forth emails
+  - 👥 Thread includes: Olivier Schweizer (schweizer@dinvest.ag), Yariv Binnun
 
 ## Someday
