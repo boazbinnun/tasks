@@ -19,11 +19,12 @@
     /* ── HEADER ── */
     header {
       background: #0f172a;
-      padding: 16px 24px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .header-left {
@@ -32,10 +33,7 @@
       gap: 12px;
     }
 
-    .header-icon {
-      font-size: 22px;
-      line-height: 1;
-    }
+    .header-icon { font-size: 22px; line-height: 1; }
 
     .header-title h1 {
       font-size: 17px;
@@ -48,9 +46,45 @@
       font-size: 12px;
       color: #64748b;
       margin-top: 1px;
-      font-weight: 400;
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ── TABS ── */
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 3px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover { color: #cbd5e1; }
+    .tab-btn.active {
+      background: #334155;
+      color: #f1f5f9;
+      font-weight: 600;
+    }
+
+    /* ── REFRESH BUTTON ── */
     .refresh-btn {
       background: #1e293b;
       color: #94a3b8;
@@ -67,7 +101,9 @@
       font-family: inherit;
     }
     .refresh-btn:hover { background: #334155; color: #e2e8f0; }
-    .refresh-btn.spinning { animation: spin 0.8s linear infinite; }
+    .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .refresh-icon { display: inline-block; }
+    .refresh-btn.spinning .refresh-icon { animation: spin 0.8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ── STATUS BAR ── */
@@ -97,24 +133,16 @@
       flex-shrink: 0;
     }
 
-    .status-count {
-      font-weight: 600;
-      color: #1e293b;
-    }
-
-    .last-synced {
-      margin-left: auto;
-      font-size: 12px;
-      color: #94a3b8;
-    }
+    .status-count { font-weight: 700; color: #1e293b; }
+    .last-synced { margin-left: auto; font-size: 12px; color: #94a3b8; }
 
     /* ── SECTION COLORS ── */
     :root {
-      --active-color: #3b82f6;
+      --active-color:   #3b82f6;
       --followup-color: #8b5cf6;
-      --waiting-color: #f59e0b;
-      --someday-color: #94a3b8;
-      --done-color: #10b981;
+      --waiting-color:  #f59e0b;
+      --someday-color:  #94a3b8;
+      --done-color:     #10b981;
     }
 
     /* ── BOARD ── */
@@ -126,16 +154,10 @@
       align-items: start;
     }
 
-    @media (max-width: 768px) {
-      .board { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 768px) { .board { grid-template-columns: 1fr; } }
 
     /* ── COLUMN ── */
-    .column {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .column { display: flex; flex-direction: column; gap: 10px; }
 
     .column-header {
       display: flex;
@@ -181,11 +203,10 @@
     }
     .task-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
 
-    .task-card.section-active    { border-left-color: var(--active-color); }
-    .task-card.section-follow-up { border-left-color: var(--followup-color); }
-    .task-card.section-waiting-on { border-left-color: var(--waiting-color); }
-    .task-card.section-someday   { border-left-color: var(--someday-color); }
-    .task-card.section-done      { border-left-color: var(--done-color); opacity: 0.75; }
+    .task-card.section-active      { border-left-color: var(--active-color); }
+    .task-card.section-follow-up   { border-left-color: var(--followup-color); }
+    .task-card.section-waiting-on  { border-left-color: var(--waiting-color); }
+    .task-card.section-someday     { border-left-color: var(--someday-color); }
 
     .card-top {
       display: flex;
@@ -211,6 +232,8 @@
     .badge-powerbi    { background: #fef3c7; color: #92400e; }
     .badge-linear     { background: #ede9fe; color: #5b21b6; }
     .badge-onboarding { background: #f3e8ff; color: #6d28d9; }
+    .badge-marketing  { background: #fff7ed; color: #9a3412; }
+    .badge-internal   { background: #f0fdf4; color: #166534; }
     .badge-default    { background: #f1f5f9; color: #475569; }
 
     .task-title {
@@ -221,11 +244,6 @@
       flex: 1;
     }
 
-    .task-done .task-title {
-      text-decoration: line-through;
-      color: #94a3b8;
-    }
-
     .task-description {
       font-size: 13px;
       color: #64748b;
@@ -233,7 +251,7 @@
       margin-bottom: 8px;
     }
 
-    /* Badges row */
+    /* Badge row */
     .badge-row {
       display: flex;
       align-items: center;
@@ -257,7 +275,7 @@
       color: #f59e0b;
     }
 
-    /* Assignee / raised-by */
+    /* Meta row */
     .meta-row {
       display: flex;
       align-items: center;
@@ -274,10 +292,9 @@
       color: #64748b;
     }
 
-    .meta-item.assignee { color: #3b82f6; font-weight: 500; }
+    .meta-item.assignee  { color: #3b82f6; font-weight: 500; }
     .meta-item.raised-by { color: #8b5cf6; }
-
-    .meta-icon { font-size: 11px; }
+    .meta-item.updated   { color: #94a3b8; margin-left: auto; font-size: 11px; }
 
     /* Sub-items */
     .sub-items {
@@ -295,7 +312,94 @@
       line-height: 1.5;
     }
 
-    /* Done checkmark */
+    /* Empty / Loading */
+    .empty-col {
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+      border: 1px dashed #e2e8f0;
+    }
+
+    .loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .error-msg {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px;
+      color: #ef4444;
+      font-size: 14px;
+    }
+
+    /* ── DONE VIEW ── */
+    #doneView {
+      padding: 20px 24px;
+      max-width: 860px;
+    }
+
+    .done-loading {
+      padding: 60px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .week-group { margin-bottom: 28px; }
+
+    .week-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .week-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #475569;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .week-divider {
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
+    }
+
+    .week-count {
+      background: #e2e8f0;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .done-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 6px;
+      transition: box-shadow 0.15s;
+    }
+
+    .done-row:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
     .done-check {
       display: inline-flex;
       align-items: center;
@@ -309,32 +413,19 @@
       flex-shrink: 0;
     }
 
-    /* Empty state */
-    .empty-col {
-      background: #fff;
-      border-radius: 10px;
-      padding: 24px;
-      text-align: center;
+    .done-title {
       font-size: 13px;
-      color: #94a3b8;
-      border: 1px dashed #e2e8f0;
+      font-weight: 500;
+      color: #475569;
+      flex: 1;
+      line-height: 1.4;
     }
 
-    /* Loading */
-    .loading {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 60px;
+    .done-date {
+      font-size: 11px;
       color: #94a3b8;
-      font-size: 14px;
+      white-space: nowrap;
     }
-
-    /* Done section collapser */
-    .done-section-label {
-      cursor: pointer;
-      user-select: none;
-    }
-    .done-section-label:hover .column-name { color: #1e293b; }
   </style>
 </head>
 <body>
@@ -344,83 +435,175 @@
       <div class="header-icon">📋</div>
       <div class="header-title">
         <h1>Boaz — Task Dashboard</h1>
-        <div class="subtitle">TASKS.md</div>
+        <div class="subtitle" id="lastSynced">Loading…</div>
       </div>
     </div>
-    <button class="refresh-btn" id="refreshBtn">↻ Refresh</button>
+    <div class="header-right">
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="tasks" onclick="switchTab('tasks')">📋 Tasks</button>
+        <button class="tab-btn"        data-tab="done"  onclick="switchTab('done')">✅ Done</button>
+      </div>
+      <button class="refresh-btn" id="refreshBtn" onclick="refresh()">
+        <span class="refresh-icon">↻</span> Refresh
+      </button>
+    </div>
   </header>
 
-  <div class="status-bar" id="statusBar">
-    <span class="status-item"><span class="status-dot" style="background:var(--active-color)"></span>Active <span class="status-count" id="cnt-active">—</span></span>
-    <span class="status-item"><span class="status-dot" style="background:var(--followup-color)"></span>Follow-Up <span class="status-count" id="cnt-followup">—</span></span>
-    <span class="status-item"><span class="status-dot" style="background:var(--waiting-color)"></span>Waiting <span class="status-count" id="cnt-waiting">—</span></span>
-    <span class="status-item"><span class="status-dot" style="background:var(--someday-color)"></span>Someday <span class="status-count" id="cnt-someday">—</span></span>
-    <span class="status-item"><span class="status-dot" style="background:var(--done-color)"></span>Done <span class="status-count" id="cnt-done">—</span></span>
-    <span class="last-synced" id="lastSynced"></span>
+  <!-- ── TASKS VIEW ── -->
+  <div id="tasksView">
+    <div class="status-bar">
+      <span class="status-item"><span class="status-dot" style="background:var(--active-color)"></span>Active <span class="status-count" id="cnt-active">—</span></span>
+      <span class="status-item"><span class="status-dot" style="background:var(--followup-color)"></span>Follow-Up <span class="status-count" id="cnt-followup">—</span></span>
+      <span class="status-item"><span class="status-dot" style="background:var(--waiting-color)"></span>Waiting <span class="status-count" id="cnt-waiting">—</span></span>
+      <span class="status-item"><span class="status-dot" style="background:var(--someday-color)"></span>Someday <span class="status-count" id="cnt-someday">—</span></span>
+    </div>
+    <div class="board" id="board">
+      <div class="loading">Loading tasks…</div>
+    </div>
   </div>
 
-  <div class="board" id="board">
-    <div class="loading">Loading tasks…</div>
+  <!-- ── DONE VIEW ── -->
+  <div id="doneView" style="display:none">
+    <div class="done-loading" id="doneList">Loading done tasks…</div>
   </div>
 
   <script>
-    const TASKS_URL = 'https://raw.githubusercontent.com/boazbinnun/tasks/main/TASKS.md';
+    // ─────────────────────────────────────────────────────────────────
+    // CONFIG
+    // ─────────────────────────────────────────────────────────────────
+    const REPO   = 'boazbinnun/tasks';
+    const BRANCH = 'main';
 
-    // ── PARSING ──────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────
+    // FETCH  — uses GitHub Contents API with raw accept header.
+    // This bypasses both browser cache AND GitHub CDN cache.
+    // ─────────────────────────────────────────────────────────────────
+    async function fetchFile(path) {
+      const url = `https://api.github.com/repos/${REPO}/contents/${path}?ref=${BRANCH}&_t=${Date.now()}`;
+      const res = await fetch(url, {
+        cache: 'no-store',
+        headers: { 'Accept': 'application/vnd.github.v3.raw' }
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status} fetching ${path}`);
+      return res.text();
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // TAB STATE
+    // ─────────────────────────────────────────────────────────────────
+    let activeTab = 'tasks';
+    let doneLoaded = false;
+
+    function switchTab(tab) {
+      activeTab = tab;
+      document.getElementById('tasksView').style.display = tab === 'tasks' ? '' : 'none';
+      document.getElementById('doneView').style.display  = tab === 'done'  ? '' : 'none';
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tab);
+      });
+      if (tab === 'done' && !doneLoaded) loadDone();
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // HELPERS
+    // ─────────────────────────────────────────────────────────────────
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      // dateStr is YYYY-MM-DD; append T12:00:00 to avoid timezone shifts
+      const d = new Date(dateStr + 'T12:00:00');
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    function badgeClass(project) {
+      if (!project) return 'badge-default';
+      const p = project.toLowerCase();
+      if (p === 'zoho')              return 'badge-zoho';
+      if (p.includes('dinvest'))     return 'badge-dinvest';
+      if (p.includes('power bi'))    return 'badge-powerbi';
+      if (p.includes('linear'))      return 'badge-linear';
+      if (p.includes('onboarding'))  return 'badge-onboarding';
+      if (p.includes('marketing'))   return 'badge-marketing';
+      if (p.includes('internal'))    return 'badge-internal';
+      return 'badge-default';
+    }
+
+    function sectionClass(name) {
+      const n = name.toLowerCase();
+      if (n.includes('active'))   return 'section-active';
+      if (n.includes('follow'))   return 'section-follow-up';
+      if (n.includes('wait'))     return 'section-waiting-on';
+      if (n.includes('someday'))  return 'section-someday';
+      return 'section-active';
+    }
+
+    function sectionColor(name) {
+      const map = {
+        'section-active':     'var(--active-color)',
+        'section-follow-up':  'var(--followup-color)',
+        'section-waiting-on': 'var(--waiting-color)',
+        'section-someday':    'var(--someday-color)',
+      };
+      return map[sectionClass(name)] || '#94a3b8';
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // PARSE TASKS.MD
+    // ─────────────────────────────────────────────────────────────────
     function parseTasksMd(md) {
-      const lines = md.split('\n');
+      const lines  = md.split('\n');
       const sections = [];
-      let sec = null;
+      let sec  = null;
       let task = null;
 
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-
-        // Section header
+      for (const line of lines) {
+        // Section header (## Active, ## Follow-Up, etc.)
         if (/^## /.test(line)) {
-          sec = { name: line.slice(3).trim(), tasks: [] };
-          sections.push(sec);
+          sec  = { name: line.slice(3).trim(), tasks: [] };
           task = null;
+          sections.push(sec);
           continue;
         }
 
-        // Skip subsection italics
+        // Skip italic sub-headers (*Zoho Desk Project*)
         if (/^\*[^*]/.test(line)) continue;
 
-        // Task line
+        // Task line:  - [ ] **[Tag] Title** - description | key: val | ...
         const m = line.match(/^- \[([ x])\] \*\*(.+?)\*\*(.*)/);
         if (m && sec) {
-          const done = m[1] === 'x';
+          const done     = m[1] === 'x';
           const rawTitle = m[2].trim();
-          const rest = m[3];
+          const rest     = m[3] || '';
 
-          // Project tag
+          // Extract [Project] tag
           const projMatch = rawTitle.match(/^\[([^\]]+)\]/);
-          const project = projMatch ? projMatch[1] : null;
-          let cleanTitle = rawTitle.replace(/^\[[^\]]+\]\s*/, '').trim();
+          const project   = projMatch ? projMatch[1] : null;
+          let   cleanTitle = rawTitle.replace(/^\[[^\]]+\]\s*/, '').trim();
 
-          // Assignee from title (→ **Idan**)
+          // Extract assignee  →  **Idan**
           let assignee = null;
-          const assigneeMatch = cleanTitle.match(/→\s*\*\*(.+?)\*\*/);
-          if (assigneeMatch) {
-            assignee = assigneeMatch[1];
+          const aMatch = cleanTitle.match(/→\s*\*\*(.+?)\*\*/);
+          if (aMatch) {
+            assignee   = aMatch[1];
             cleanTitle = cleanTitle.replace(/→\s*\*\*.+?\*\*/, '').trim();
           }
 
-          // Parse rest (after ** - )
+          // Parse description + metadata after the dash separator
           const descAndMeta = rest.replace(/^ - /, '').trim();
-          const parts = descAndMeta.split(' | ');
+          const parts       = descAndMeta.split(' | ');
           const description = parts[0] || '';
 
-          let dueDate = null, raisedBy = null, since = null, doneDate = null;
+          let dueDate = null, raisedBy = null, since = null, doneDate = null, updatedDate = null;
           for (const p of parts.slice(1)) {
-            if (p.startsWith('due: ')) dueDate = p.slice(5).trim();
-            if (p.startsWith('done: ')) doneDate = p.slice(6).trim();
-            if (p.startsWith('raised by: ')) raisedBy = p.slice(11).trim();
-            if (p.startsWith('since: ')) since = p.slice(7).trim();
+            const v = p.trim();
+            if (v.startsWith('due: '))      dueDate     = v.slice(5).trim();
+            if (v.startsWith('done: '))     doneDate    = v.slice(6).trim();
+            if (v.startsWith('raised by: ')) raisedBy   = v.slice(11).trim();
+            if (v.startsWith('since: '))    since       = v.slice(7).trim();
+            if (v.startsWith('updated: '))  updatedDate = v.slice(9).trim();
           }
 
-          task = { done, title: cleanTitle, project, assignee, description, dueDate, raisedBy, since, doneDate, subItems: [] };
+          task = { done, title: cleanTitle, project, assignee, description,
+                   dueDate, raisedBy, since, doneDate, updatedDate, subItems: [] };
           sec.tasks.push(task);
           continue;
         }
@@ -434,61 +617,53 @@
       return sections;
     }
 
-    // ── PROJECT BADGE ─────────────────────────────────────────────
-    function badgeClass(project) {
-      if (!project) return 'badge-default';
-      const p = project.toLowerCase();
-      if (p === 'zoho') return 'badge-zoho';
-      if (p.includes('dinvest')) return 'badge-dinvest';
-      if (p.includes('power bi')) return 'badge-powerbi';
-      if (p.includes('linear')) return 'badge-linear';
-      if (p.includes('onboarding')) return 'badge-onboarding';
-      return 'badge-default';
+    // ─────────────────────────────────────────────────────────────────
+    // PARSE DONE.MD
+    // ─────────────────────────────────────────────────────────────────
+    function parseDoneMd(md) {
+      const lines = md.split('\n');
+      const weeks = [];
+      let week    = null;
+
+      for (const line of lines) {
+        if (/^## /.test(line)) {
+          week = { label: line.slice(3).trim(), tasks: [] };
+          weeks.push(week);
+          continue;
+        }
+
+        const m = line.match(/^- \[x\] \*\*(.+?)\*\*(.*)/);
+        if (m && week) {
+          const rawTitle  = m[1].trim();
+          const rest      = m[2] || '';
+
+          const projMatch = rawTitle.match(/^\[([^\]]+)\]/);
+          const project   = projMatch ? projMatch[1] : null;
+          const title     = rawTitle.replace(/^\[[^\]]+\]\s*/, '').trim();
+
+          const parts     = rest.replace(/^ — /, '').replace(/^ - /, '').trim().split(' | ');
+          let doneDate    = null;
+          for (const p of parts) {
+            const v = p.trim();
+            if (v.startsWith('done: ')) doneDate = v.slice(6).trim();
+          }
+
+          week.tasks.push({ project, title, doneDate });
+        }
+      }
+
+      return weeks;
     }
 
-    // ── SECTION CSS CLASS ─────────────────────────────────────────
-    function sectionClass(name) {
-      const n = name.toLowerCase();
-      if (n.includes('active')) return 'section-active';
-      if (n.includes('follow')) return 'section-follow-up';
-      if (n.includes('wait')) return 'section-waiting-on';
-      if (n.includes('someday')) return 'section-someday';
-      if (n.includes('done')) return 'section-done';
-      return 'section-active';
-    }
-
-    function sectionColor(name) {
-      const cls = sectionClass(name);
-      const map = {
-        'section-active': 'var(--active-color)',
-        'section-follow-up': 'var(--followup-color)',
-        'section-waiting-on': 'var(--waiting-color)',
-        'section-someday': 'var(--someday-color)',
-        'section-done': 'var(--done-color)',
-      };
-      return map[cls] || '#94a3b8';
-    }
-
-    function sectionLabel(name) {
-      const n = name.toLowerCase();
-      if (n.includes('active')) return 'Active — My Tasks';
-      return name;
-    }
-
-    // ── TODAY CHECK ───────────────────────────────────────────────
-    function isToday(dateStr) {
-      if (!dateStr) return false;
-      const today = new Date().toISOString().slice(0, 10);
-      return dateStr === today;
-    }
-
-    // ── RENDER CARD ───────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────
+    // RENDER: TASK CARD
+    // ─────────────────────────────────────────────────────────────────
     function renderCard(task, secName) {
-      const cls = sectionClass(secName);
+      const cls  = sectionClass(secName);
       const card = document.createElement('div');
-      card.className = `task-card ${cls}${task.done ? ' task-done' : ''}`;
+      card.className = `task-card ${cls}`;
 
-      // Top row: badge + title
+      // Top: badge + title
       const top = document.createElement('div');
       top.className = 'card-top';
 
@@ -497,13 +672,6 @@
         badge.className = `project-badge ${badgeClass(task.project)}`;
         badge.textContent = task.project.toUpperCase();
         top.appendChild(badge);
-      }
-
-      if (task.done) {
-        const check = document.createElement('span');
-        check.className = 'done-check';
-        check.textContent = '✓';
-        top.appendChild(check);
       }
 
       const title = document.createElement('span');
@@ -520,13 +688,13 @@
         card.appendChild(desc);
       }
 
-      // Badges: due today / since
+      // Badge row: due / since
       const badgeRow = document.createElement('div');
       badgeRow.className = 'badge-row';
-      if (task.dueDate && isToday(task.dueDate)) {
+      if (task.dueDate) {
         const due = document.createElement('span');
         due.className = 'due-badge';
-        due.textContent = 'Due today';
+        due.textContent = 'Due ' + formatDate(task.dueDate);
         badgeRow.appendChild(due);
       }
       if (task.since) {
@@ -537,21 +705,27 @@
       }
       if (badgeRow.children.length) card.appendChild(badgeRow);
 
-      // Meta: assignee + raised by
+      // Meta row: assignee | raised by | updated
       const metaRow = document.createElement('div');
       metaRow.className = 'meta-row';
 
       if (task.assignee) {
         const a = document.createElement('span');
         a.className = 'meta-item assignee';
-        a.innerHTML = `<span class="meta-icon">→</span> ${task.assignee}`;
+        a.innerHTML = `<span>→</span> ${escHtml(task.assignee)}`;
         metaRow.appendChild(a);
       }
       if (task.raisedBy) {
         const r = document.createElement('span');
         r.className = 'meta-item raised-by';
-        r.innerHTML = `<span class="meta-icon">↑</span> ${task.raisedBy}`;
+        r.innerHTML = `<span>↑</span> ${escHtml(task.raisedBy)}`;
         metaRow.appendChild(r);
+      }
+      if (task.updatedDate) {
+        const u = document.createElement('span');
+        u.className = 'meta-item updated';
+        u.textContent = '↻ ' + formatDate(task.updatedDate);
+        metaRow.appendChild(u);
       }
       if (metaRow.children.length) card.appendChild(metaRow);
 
@@ -571,100 +745,26 @@
       return card;
     }
 
-    // ── RENDER SECTION COLUMN ─────────────────────────────────────
-    function renderSection(sec) {
-      const activeTasks = sec.tasks.filter(t => !t.done || sec.name.toLowerCase().includes('done'));
-
-      const col = document.createElement('div');
-      col.className = 'column';
-
-      const hdr = document.createElement('div');
-      hdr.className = 'column-header';
-
-      const dot = document.createElement('div');
-      dot.className = 'column-dot';
-      dot.style.background = sectionColor(sec.name);
-
-      const nameEl = document.createElement('div');
-      nameEl.className = 'column-name';
-      nameEl.textContent = sectionLabel(sec.name).toUpperCase();
-
-      const countEl = document.createElement('div');
-      countEl.className = 'column-count';
-      countEl.textContent = activeTasks.length;
-
-      hdr.appendChild(dot);
-      hdr.appendChild(nameEl);
-      hdr.appendChild(countEl);
-      col.appendChild(hdr);
-
-      if (activeTasks.length === 0) {
-        const empty = document.createElement('div');
-        empty.className = 'empty-col';
-        empty.textContent = 'No tasks';
-        col.appendChild(empty);
-      } else {
-        for (const task of activeTasks) {
-          col.appendChild(renderCard(task, sec.name));
-        }
-      }
-
-      return col;
-    }
-
-    // ── UPDATE STATUS BAR ─────────────────────────────────────────
-    function updateStatusBar(sections) {
-      const count = (keyword) => {
-        const sec = sections.find(s => s.name.toLowerCase().includes(keyword));
-        if (!sec) return 0;
-        if (keyword === 'done') return sec.tasks.length;
-        return sec.tasks.filter(t => !t.done).length;
-      };
-
-      document.getElementById('cnt-active').textContent = count('active');
-      document.getElementById('cnt-followup').textContent = count('follow');
-      document.getElementById('cnt-waiting').textContent = count('wait');
-      document.getElementById('cnt-someday').textContent = count('someday');
-      document.getElementById('cnt-done').textContent = count('done');
-
-      const now = new Date();
-      document.getElementById('lastSynced').textContent =
-        'Auto-synced · ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-
-    // ── MAIN RENDER ───────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────
+    // RENDER: TASKS BOARD
+    // ─────────────────────────────────────────────────────────────────
     function renderBoard(sections) {
       const board = document.getElementById('board');
       board.innerHTML = '';
 
-      // Layout: left col = Active + Waiting + Someday; right col = Follow-Up + Done
+      // Left column: Active + Waiting On + Someday
       const leftSections = sections.filter(s => {
         const n = s.name.toLowerCase();
         return n.includes('active') || n.includes('wait') || n.includes('someday');
       });
-      const rightSections = sections.filter(s => {
-        const n = s.name.toLowerCase();
-        return n.includes('follow') || n.includes('done');
-      });
 
-      const leftCol = document.createElement('div');
-      leftCol.className = 'column';
-      for (const sec of leftSections) {
-        if (sec.tasks.filter(t => !t.done).length > 0) {
-          const rendered = renderSection(sec);
-          // Flatten cards into leftCol (no nested column header needed — keep section headers)
-          for (const child of rendered.children) leftCol.appendChild(child.cloneNode(true));
-        }
-      }
+      // Right column: Follow-Up
+      const rightSections = sections.filter(s =>
+        s.name.toLowerCase().includes('follow')
+      );
 
-      const rightCol = document.createElement('div');
-      rightCol.className = 'column';
-      for (const sec of rightSections) {
-        if (sec.tasks.length > 0) {
-          const rendered = renderSection(sec);
-          for (const child of rendered.children) rightCol.appendChild(child.cloneNode(true));
-        }
-      }
+      const leftCol  = buildColumn(leftSections);
+      const rightCol = buildColumn(rightSections);
 
       board.appendChild(leftCol);
       board.appendChild(rightCol);
@@ -672,31 +772,223 @@
       updateStatusBar(sections);
     }
 
-    // ── FETCH ─────────────────────────────────────────────────────
-    async function loadTasks() {
-      const btn = document.getElementById('refreshBtn');
-      btn.textContent = '↻ Loading…';
-      btn.disabled = true;
-      try {
-        const res = await fetch(TASKS_URL + '?t=' + Date.now());
-        const text = await res.text();
-        const sections = parseTasksMd(text);
-        renderBoard(sections);
-      } catch (e) {
-        document.getElementById('board').innerHTML =
-          '<div class="loading">Failed to load tasks. Check your connection.</div>';
-      } finally {
-        btn.textContent = '↻ Refresh';
-        btn.disabled = false;
+    function buildColumn(sectionList) {
+      const col = document.createElement('div');
+      col.className = 'column';
+
+      for (const sec of sectionList) {
+        // Only render tasks that are not done
+        const openTasks = sec.tasks.filter(t => !t.done);
+        if (openTasks.length === 0) continue;
+
+        // Section header
+        const hdr = document.createElement('div');
+        hdr.className = 'column-header';
+
+        const dot = document.createElement('div');
+        dot.className = 'column-dot';
+        dot.style.background = sectionColor(sec.name);
+
+        const nameEl = document.createElement('div');
+        nameEl.className = 'column-name';
+        nameEl.textContent = sec.name.toUpperCase();
+
+        const countEl = document.createElement('div');
+        countEl.className = 'column-count';
+        countEl.textContent = openTasks.length;
+
+        hdr.appendChild(dot);
+        hdr.appendChild(nameEl);
+        hdr.appendChild(countEl);
+        col.appendChild(hdr);
+
+        for (const task of openTasks) {
+          col.appendChild(renderCard(task, sec.name));
+        }
+      }
+
+      if (!col.children.length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-col';
+        empty.textContent = 'No tasks';
+        col.appendChild(empty);
+      }
+
+      return col;
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // RENDER: DONE VIEW
+    // ─────────────────────────────────────────────────────────────────
+    function renderDoneList(weeks) {
+      const container = document.getElementById('doneList');
+      container.innerHTML = '';
+      container.className = '';
+
+      if (!weeks.length) {
+        container.textContent = 'No done tasks found.';
+        container.style.padding = '40px';
+        container.style.textAlign = 'center';
+        container.style.color = '#94a3b8';
+        return;
+      }
+
+      for (const week of weeks) {
+        if (!week.tasks.length) continue;
+
+        const group = document.createElement('div');
+        group.className = 'week-group';
+
+        // Week header
+        const hdr = document.createElement('div');
+        hdr.className = 'week-header';
+
+        const label = document.createElement('span');
+        label.className = 'week-label';
+        label.textContent = week.label;
+
+        const divider = document.createElement('div');
+        divider.className = 'week-divider';
+
+        const count = document.createElement('span');
+        count.className = 'week-count';
+        count.textContent = week.tasks.length + ' done';
+
+        hdr.appendChild(label);
+        hdr.appendChild(divider);
+        hdr.appendChild(count);
+        group.appendChild(hdr);
+
+        // Task rows
+        for (const task of week.tasks) {
+          const row = document.createElement('div');
+          row.className = 'done-row';
+
+          const check = document.createElement('span');
+          check.className = 'done-check';
+          check.textContent = '✓';
+
+          if (task.project) {
+            const badge = document.createElement('span');
+            badge.className = `project-badge ${badgeClass(task.project)}`;
+            badge.textContent = task.project.toUpperCase();
+            row.appendChild(check);
+            row.appendChild(badge);
+          } else {
+            row.appendChild(check);
+          }
+
+          const titleEl = document.createElement('span');
+          titleEl.className = 'done-title';
+          titleEl.textContent = task.title;
+
+          const dateEl = document.createElement('span');
+          dateEl.className = 'done-date';
+          dateEl.textContent = task.doneDate ? formatDate(task.doneDate) : '';
+
+          row.appendChild(titleEl);
+          row.appendChild(dateEl);
+          group.appendChild(row);
+        }
+
+        container.appendChild(group);
       }
     }
 
-    document.getElementById('refreshBtn').addEventListener('click', loadTasks);
+    // ─────────────────────────────────────────────────────────────────
+    // STATUS BAR
+    // ─────────────────────────────────────────────────────────────────
+    function updateStatusBar(sections) {
+      function openCount(keyword) {
+        const sec = sections.find(s => s.name.toLowerCase().includes(keyword));
+        return sec ? sec.tasks.filter(t => !t.done).length : 0;
+      }
+      document.getElementById('cnt-active').textContent   = openCount('active');
+      document.getElementById('cnt-followup').textContent = openCount('follow');
+      document.getElementById('cnt-waiting').textContent  = openCount('wait');
+      document.getElementById('cnt-someday').textContent  = openCount('someday');
+    }
 
-    // Auto-refresh every 5 minutes
-    setInterval(loadTasks, 5 * 60 * 1000);
+    // ─────────────────────────────────────────────────────────────────
+    // ESCAPE HTML (safety for dynamic text)
+    // ─────────────────────────────────────────────────────────────────
+    function escHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
 
-    loadTasks();
+    // ─────────────────────────────────────────────────────────────────
+    // LOAD TASKS
+    // ─────────────────────────────────────────────────────────────────
+    async function loadTasks() {
+      document.getElementById('board').innerHTML = '<div class="loading">Loading tasks…</div>';
+      try {
+        const md       = await fetchFile('TASKS.md');
+        const sections = parseTasksMd(md);
+        renderBoard(sections);
+      } catch (e) {
+        document.getElementById('board').innerHTML =
+          `<div class="error-msg">Failed to load tasks — ${escHtml(e.message)}</div>`;
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // LOAD DONE
+    // ─────────────────────────────────────────────────────────────────
+    async function loadDone() {
+      const el = document.getElementById('doneList');
+      el.className = 'done-loading';
+      el.textContent = 'Loading done tasks…';
+      try {
+        const md    = await fetchFile('DONE.md');
+        const weeks = parseDoneMd(md);
+        renderDoneList(weeks);
+        doneLoaded = true;
+      } catch (e) {
+        el.textContent = `Failed to load done tasks — ${e.message}`;
+        el.style.color = '#ef4444';
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // REFRESH BUTTON  — reloads whichever tab is active
+    // ─────────────────────────────────────────────────────────────────
+    async function refresh() {
+      const btn = document.getElementById('refreshBtn');
+      btn.classList.add('spinning');
+      btn.disabled = true;
+
+      try {
+        if (activeTab === 'tasks') {
+          await loadTasks();
+        } else {
+          doneLoaded = false;
+          await loadDone();
+        }
+      } finally {
+        btn.classList.remove('spinning');
+        btn.disabled = false;
+        const now = new Date();
+        document.getElementById('lastSynced').textContent =
+          'Synced ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // AUTO-REFRESH every 5 minutes (tasks tab only to save API calls)
+    // ─────────────────────────────────────────────────────────────────
+    setInterval(() => {
+      if (activeTab === 'tasks') loadTasks();
+    }, 5 * 60 * 1000);
+
+    // ─────────────────────────────────────────────────────────────────
+    // INIT
+    // ─────────────────────────────────────────────────────────────────
+    (async () => {
+      await loadTasks();
+      const now = new Date();
+      document.getElementById('lastSynced').textContent =
+        'Synced ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    })();
   </script>
 </body>
 </html>
