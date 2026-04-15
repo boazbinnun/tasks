@@ -28,13 +28,15 @@
 - [ ] **[Marketing] Redesign Homepage** - Redesign the homepage based on new AI messaging | #5 | added: 2026-03-25 | updated: 2026-03-25
   - 🔗 Mockup: https://assets.dinvest.ag/documents/hompage-ai-mockaup-1.html
 
-- [ ] **[Dinvest Checklisten] Checklist Platform — Mieterwechsel & MandateOnboarding** - Two-track project: Mieterwechsel POC → production handoff to Idan, and MandateOnboarding spec → POC build | #6 | added: 2026-04-07 | updated: 2026-04-15
+- [ ] **[Dinvest Checklisten] Checklist Platform — Mieterwechsel, MandateOnboarding & Move-Out** - Three-track project: Mieterwechsel POC → production, MandateOnboarding spec → POC, and Move-Out walkthrough with Olivier | #6 | added: 2026-04-07 | updated: 2026-04-15
   - **Track A — Mieterwechsel (TenantTurnover)** → **Idan**: Hand off POC to Idan for production build. Requires: PostgreSQL backend, auth, role-based access, deploy to inhouse.dinvest.ag
     - ✅ Miriam answered all 5 process questions 2026-04-14 — blocker resolved
     - 📝 Key answers: 1 doc for multi-object tenants; kaution only for Wohnungen & Gewerbe (never Einstellplatz); Einstellplatz process = confirm cancellation → keys returned → done; main combos are Wohnung + Einstellplatz
     - 🔗 POC: https://dinvest-projects-poc.vercel.app/
   - **Track B — MandateOnboarding (Mandatsaufnahme)**: Write Technical Spec (Boaz) → then hand off POC build to Idan
     - ⚠️ Boaz must write Technical Spec first — Idan is blocked until then
+  - **Track C — Move-Out Walkthrough** → **Olivier**: Walk through new checklist system (move-out + building onboarding) with Olivier when he's back
+    - 🔗 App: https://dinvest-portal.vercel.app
 
 - [ ] **[Power BI] Fix Owner Dashboard** - Fix Power BI owner dashboard based on Yariv's comments | #7 | due: 2026-03-25 | updated: 2026-03-25
   - ✅ KPI design spec completed + Linear ticket created for Idan: 2026-03-25
@@ -54,8 +56,6 @@
 
 
 - [ ] **[Dinvest Website] Remove Org Chart Section from About Us Page** → **Ilya (web developer)** - Remove the Org Chart section completely from the Dinvest About Us page | #10 | email sent: 2026-04-13 | updated: 2026-04-13
-
-- [ ] **[Dinvest] Move-Out Checklist Process** → **Olivier** - Walk through new checklist system (move-out + building onboarding) with Olivier when he's back. App is live at https://dinvest-portal.vercel.app | #11 | added: 2026-04-05 | updated: 2026-04-05
 
 
 - [ ] **[Zoho] Ticket Routing Rules** → **Philipp → Olivier → Idan** - Philipp sends current routing rules to Olivier; Olivier reviews and forwards to Idan; Idan implements | #14 | raised by: Philipp | updated: 2026-04-14
