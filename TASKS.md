@@ -58,6 +58,10 @@
 - [ ] **[Dinvest Website] Remove Org Chart Section from About Us Page** → **Ilya (web developer)** - Remove the Org Chart section completely from the Dinvest About Us page | #10 | email sent: 2026-04-13 | updated: 2026-04-13
 
 
+- [ ] **[Dinvest Inhouse] Document Management Structure** → **Olivier** - Define how documents should be structured in the inhouse system. Mockup ready, Linear ticket created — waiting for Olivier's approval | #17 | added: 2026-04-15 | updated: 2026-04-15
+  - 🔗 Mockup: https://dinvest-folders-design.vercel.app/
+  - ⏳ Pending: Olivier approval
+
 - [ ] **[Zoho] Ticket Routing Rules** → **Philipp → Olivier → Idan** - Philipp sends current routing rules to Olivier; Olivier reviews and forwards to Idan; Idan implements | #14 | raised by: Philipp | updated: 2026-04-14
 
 ## Waiting On
