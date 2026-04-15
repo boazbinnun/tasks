@@ -32,7 +32,7 @@
   - **Track A — Mieterwechsel (TenantTurnover)** → **Idan**: Hand off POC to Idan for production build. Requires: PostgreSQL backend, auth, role-based access, deploy to inhouse.dinvest.ag
     - ✅ Miriam answered all 5 process questions 2026-04-14 — blocker resolved
     - 📝 Key answers: 1 doc for multi-object tenants; kaution only for Wohnungen & Gewerbe (never Einstellplatz); Einstellplatz process = confirm cancellation → keys returned → done; main combos are Wohnung + Einstellplatz
-    - 🔗 POC: https://mieterwechsel-poc.vercel.app
+    - 🔗 POC: https://dinvest-projects-poc.vercel.app/
   - **Track B — MandateOnboarding (Mandatsaufnahme)**: Write Technical Spec (Boaz) → then hand off POC build to Idan
     - ⚠️ Boaz must write Technical Spec first — Idan is blocked until then
 
