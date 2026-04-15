@@ -2,6 +2,7 @@
 *Newest week first. Managed by Claude — tasks are moved here from TASKS.md when completed.*
 
 ## Week of Apr 13, 2026
+- [x] **[Power BI] Owner Dashboard KPI Fields** — Idan added 6 new Netto-based KPIs, renamed 2 existing fields, retired 6 old Brutto/Akonto cards | done: 2026-04-15
 - [x] **[Dinvest Checklisten] Miriam — Open Process Questions (Mieterwechsel Phase 3 / Kaution)** — All 5 questions answered by Miriam Sanchez; Einstellplatz kaution scope clarified | done: 2026-04-14
 - [x] **[Dinvest] Reporting Walkthrough with Ruslan & David** — Walked through Power BI + WW Portal live with Ruslan Marakhovskii & David Gast (NY) | done: 2026-04-14
 - [x] **[Dinvest] Open Linear Ticket for Idan — Migrate Owners Data from Zoho to Inhouse Hub** | done: 2026-04-14

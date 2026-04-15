@@ -52,10 +52,6 @@
   - 👤 **Ryan Gauci-Maistre** — Start: 2026-04-16
   - 👤 **Dominik Inguanta** — Start: 2026-05-01
 
-- [ ] **[Power BI] Owner Dashboard KPI Fields** → **Idan** - Add 6 new Netto-based KPI fields + rename 2 existing ones + retire 6 old Brutto/Akonto cards | #9 | Linear ticket created: 2026-03-25 | updated: 2026-03-25
-  - 🆕 New: Ist-Ertrag Netto /Monat & /Jahr, Leerstand Netto /Monat & /Jahr, Leerstandsquote %, Anzahl Leerstände
-  - ✏️ Rename: current Netto/Monat → Potenzial Netto/Monat; Netto/Jahr → Potenzial Netto/Jahr
-  - 🗑️ Remove: Akonto & Brutto cards (×3 monthly + ×3 yearly)
 
 - [ ] **[Dinvest Website] Remove Org Chart Section from About Us Page** → **Ilya (web developer)** - Remove the Org Chart section completely from the Dinvest About Us page | #10 | email sent: 2026-04-13 | updated: 2026-04-13
 
