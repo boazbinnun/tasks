@@ -13,30 +13,22 @@
   - 👤 Working with: Yariv
   - 🎯 Next step: review with Yariv → finalize → hand off to dev
 
-- [ ] **[Dinvest M&A] Build M&A Process Management CRM** - A CRM app enabling external brokers and Dinvest management to manage acquisitions and mergers with other property management companies | #3 | added: 2026-04-07 | updated: 2026-04-14
-  - 🎯 Covers full M&A pipeline: deal sourcing, broker collaboration, due diligence, and closing
-  - 🔗 Mockup (Lovable): https://dinvest-crm-ma.lovable.app/ — currently in beta testing
-  - 👥 Users: external brokers + Dinvest management
-
-- [ ] **[Dinvest] RobinReal.ai Demo** - Demo call scheduled with Sebastian Waszkis (CEO, robinreal.ai) to evaluate AI-driven rental lifecycle platform as potential fit for Dinvest | #4 | added: 2026-04-14 | updated: 2026-04-14
-  - 📅 **Wed 22 April 2026, 11:00–11:45** (MS Teams invite from Sebastian)
+- [ ] **[Dinvest] RobinReal.ai Partnership Follow-up** - Demo on 2026-04-22 went well — strong shared vision, AI agents reduce manual re-letting work, full two-way API. Sebastian (CEO) connected with Idan for in-depth technical check. Awaiting Idan's feedback. | #4 | added: 2026-04-23 | updated: 2026-04-26
   - 👤 Sebastian Waszkis, CEO & Co-Founder | 📧 sebastian@robinreal.ai | 📞 +41 79 959 42 55
+  - 👤 Philipp Braune | 📧 philipp@robinreal.ai
   - 🔗 robinreal.ai
-  - 📝 Context: ImmoTop2 integration not yet live but implementable on request; PREMIUM plan covers full rental lifecycle — portals (SMG, Newhome), appointment scheduling, applicant management, tenant selection, ERP data feedback
-  - 🎯 Evaluate fit vs. current eMonitor/Melon Rent workflow; 42%+ cost/time savings claimed vs. Flatfox Enterprise
+  - ✅ **Upsides:** full two-way API across whole process incl. scheduling; AI agents that significantly cut admin work; aligned vision
+  - ⚠️ **Downsides:** no integration with Immotop or Everest yet — Immotop likely solvable from our side (we already have the data + know when tenant submits move-out)
+  - [x] ✅ Demo took place 2026-04-22
+  - [x] ✅ Sebastian (CEO) connected with Idan for in-depth technical check
+  - [ ] **Follow up with Idan** on outcome of technical deep-dive with RobinReal team
+  - [ ] **Explore Immotop integration from Dinvest side** — leverage existing data + move-out trigger to push to RobinReal
+  - [ ] **Follow up with Sebastian on optimal process flow** (he proposed in 2026-04-22 follow-up email)
+  - 📎 Slides shared by Sebastian post-demo
 
 - [ ] **[Marketing] Redesign Homepage** - Redesign the homepage based on new AI messaging | #5 | added: 2026-03-25 | updated: 2026-03-25
   - 🔗 Mockup: https://assets.dinvest.ag/documents/hompage-ai-mockaup-1.html
 
-- [ ] **[Dinvest Checklisten] Checklist Platform — Mieterwechsel, MandateOnboarding & Move-Out** - Three-track project: Mieterwechsel POC → production, MandateOnboarding spec → POC, and Move-Out walkthrough with Olivier | #6 | added: 2026-04-07 | updated: 2026-04-15
-  - **Track A — Mieterwechsel (TenantTurnover)** → **Idan**: Hand off POC to Idan for production build. Requires: PostgreSQL backend, auth, role-based access, deploy to inhouse.dinvest.ag
-    - ✅ Miriam answered all 5 process questions 2026-04-14 — blocker resolved
-    - 📝 Key answers: 1 doc for multi-object tenants; kaution only for Wohnungen & Gewerbe (never Einstellplatz); Einstellplatz process = confirm cancellation → keys returned → done; main combos are Wohnung + Einstellplatz
-    - 🔗 POC: https://dinvest-projects-poc.vercel.app/
-  - **Track B — MandateOnboarding (Mandatsaufnahme)**: Write Technical Spec (Boaz) → then hand off POC build to Idan
-    - ⚠️ Boaz must write Technical Spec first — Idan is blocked until then
-  - **Track C — Move-Out Walkthrough** → **Olivier**: Walk through new checklist system (move-out + building onboarding) with Olivier when he's back
-    - 🔗 App: https://dinvest-portal.vercel.app
 
 - [ ] **[Power BI] Fix Owner Dashboard** - Fix Power BI owner dashboard based on Yariv's comments | #7 | due: 2026-03-25 | updated: 2026-03-25
   - ✅ KPI design spec completed + Linear ticket created for Idan: 2026-03-25
@@ -50,17 +42,36 @@
 ## Follow-Up
 *Tasks assigned to others — Boaz monitors progress*
 
-- [ ] **[Onboarding App] New Employee Onboarding** → **Onboarding App** - Monitor onboarding setup for new employees in the new onboarding app | #8 | updated: 2026-04-14
-  - 👤 **Ryan Gauci-Maistre** — Start: 2026-04-16
-  - 👤 **Dominik Inguanta** — Start: 2026-05-01
 
-
-- [ ] **[Dinvest Website] Remove Org Chart Section from About Us Page** → **Ilya (web developer)** - Remove the Org Chart section completely from the Dinvest About Us page | #10 | email sent: 2026-04-13 | updated: 2026-04-13
-
+- [ ] **[Dinvest Checklisten] Checklist Platform — Mieterwechsel, MandateOnboarding & Move-Out** → **Miriam & Olivier** - Mockup ready; Miriam & Olivier need to update the data for Boaz's review before submitting to Idan for implementation | #6 | added: 2026-04-07 | updated: 2026-04-27
+  - 🎯 Next: Miriam & Olivier update data → Boaz reviews → hand off to Idan
+  - **Track A — Mieterwechsel (TenantTurnover)** → **Idan**: Hand off POC to Idan for production build. Requires: PostgreSQL backend, auth, role-based access, deploy to inhouse.dinvest.ag
+    - ✅ Miriam answered all 5 process questions 2026-04-14 — blocker resolved
+    - 📝 Key answers: 1 doc for multi-object tenants; kaution only for Wohnungen & Gewerbe (never Einstellplatz); Einstellplatz process = confirm cancellation → keys returned → done; main combos are Wohnung + Einstellplatz
+    - 🔗 POC: https://dinvest-projects-poc.vercel.app/
+  - **Track B — MandateOnboarding (Mandatsaufnahme)**: Write Technical Spec (Boaz) → then hand off POC build to Idan
+  - **Track C — Move-Out Walkthrough** → **Olivier**: Walk through new checklist system (move-out + building onboarding) with Olivier when he's back
+    - 🔗 App: https://dinvest-portal.vercel.app
+  - 📋 **Reference Review Meeting — 2026-04-27** (Olivier, Albert, Miriam attended):
+    - **1. Split by rental type** — Tasks where attached files or instructions differ by move type (Terminlich / Ausserterminlich) must be split into separate tasks, one per rental type, with the correct files attached to each (e.g., task 1.2.1). Same applies where task notes contain different instructions for move-out vs. move-in (e.g., 2.1.2).
+    - **2. Digital action tasks — include content** — Any task involving a digital action (sending email, ePOST letter, etc.) must include the actual content of that communication — either directly in the task notes or as an attached text/Word file.
+    - **3. Task descriptions — explain what is being done** — Each task needs a short explanation of what actually happens at that step (e.g., "Waiting for tenant to return move-out forms by email"). Helps with system design and onboarding new staff.
+    - **4. Unused tasks** — If a task is no longer used, add the comment "NOT USED CAN BE REMOVED" directly in the task notes. Boaz will remove these in the next design pass.
+  - 📅 **Next meeting: Tuesday 2026-04-29** — updated reference list should be ready to review
 
 - [ ] **[Dinvest Inhouse] Document Management Structure** → **Olivier** - Define how documents should be structured in the inhouse system. Mockup ready, Linear ticket created — waiting for Olivier's approval | #17 | added: 2026-04-15 | updated: 2026-04-15
   - 🔗 Mockup: https://dinvest-folders-design.vercel.app/
   - ⏳ Pending: Olivier approval
+
+- [ ] **[Dinvest] storabble Intro Meeting** → **Olivier** - Yariv introduced Olivier to Oliver Meyer (founder, storabble Group AG) on 2026-04-25. storabble outsources leasing of micro-vacancies (1–100 sqm storage/hobby/utility rooms) — zero effort to property managers, owner gets market rent, storabble margin = premium above market. Olivier to coordinate meeting directly with Oliver Meyer; Boaz to join. | #18 | added: 2026-04-26 | updated: 2026-04-26
+  - 🔗 https://storabble.com/
+  - 👤 Oliver Meyer — Founder & MD, storabble Group AG | 📧 oliver@storabble.com | 📞 +41 76 445 60 39 | Lerchenfeldstrasse 3, CH-9014 St. Gallen
+  - 👤 Intro by: Yariv Binnun (Kobella Holdings)
+  - 🎯 Value prop: handles tenant acquisition, rent collection, turnover, identity verification & subtenant liability for residual vacant spaces
+  - 🏢 Reference clients: ZKB (Swisscanto), SFP, Warteck Invest, Allianz
+  - 💰 Note from Yariv: convertible offering to existing investors coming once big investors sign off
+  - [ ] Olivier to coordinate meeting directly with Oliver Meyer
+  - [ ] Boaz to join the meeting once scheduled
 
 - [ ] **[Zoho] Ticket Routing Rules** → **Philipp → Olivier → Idan** - Philipp sends current routing rules to Olivier; Olivier reviews and forwards to Idan; Idan implements | #14 | raised by: Philipp | updated: 2026-04-14
 
@@ -79,12 +90,20 @@
   - [ ] Reach out to Fabio Staub (pom+) for FM software guidance
   - [ ] Reach out to Roger Krieg (AlphaIC) for FM software guidance
 
-- [ ] **[Dinvest / nvc.ch] Insurance Integration** - Thomas forwarded to François Eisele (group project manager, coordinates with BAYO). Thomas on holiday until 2026-04-20. Boaz followed up with Thomas on 2026-04-14 — François not yet responsive. Next Advisory Board meeting (14 broker CEOs) end of April. | #16 | since: 2026-03-24 | updated: 2026-04-14
+- [ ] **[Dinvest / nvc.ch] Insurance Integration** - Kickoff call with François Eisele (Global Gruppe) held 2026-04-20. No API to BAYO CRM — real-time system-to-system integration off the table. Exploring DB dump, periodic Excel exports, and CRM access for hands-on review. Update sent to team 2026-04-26. | #16 | since: 2026-03-24 | updated: 2026-04-26
   - 📧 thomas.keller@nvc.ch | 📞 +41 61 227 95 84 (Thomas, direct)
-  - 👤 **François Eisele** — group project manager, coordinates with BAYO (no response yet)
-  - 🔑 BAYO = their system provider (API/integration docs requested)
-  - ⏳ Thomas OOO until 2026-04-20 — follow up after he's back if François still silent
+  - 👤 **François Eisele** — Projekt-, Prozess- und Integrations-Manager, Global Gruppe Schweiz AG (Thomas's colleague on integration side) | 📞 +41 44 928 08 53 / +41 79 668 16 74
+  - 🔑 **BAYO** = their CRM / system provider — **no API available**. Entire property-manager workflow happens inside the CRM; updates/notifications go out via CRM chat.
+  - 📞 **Meeting with François 2026-04-20 — outcomes & realistic paths forward:**
+    - ❌ No API to CRM — real-time, system-to-system integration not on the table
+    - 🗄️ **Path 1 — DB dump** — similar to setup we have with ImmoTop; François to follow up internally on whether BAYO can provide this
+    - 📊 **Path 2 — Periodic Excel exports** — possible today but currently manual on their side; useful as stopgap, not long-term
+    - 🔐 **Path 3 — CRM access for Dinvest** — François to provision access for Boaz & Olivier so we can get hands-on with BAYO, understand PM workflows, and refine data requirements
+  - 📩 **Team update sent 2026-04-26** summarizing the 3 paths and next steps
   - 📋 Integration scope (3 areas): 1) Claims submission — structured digital format from our platform to NVC; 2) Policy data — all 212 properties' insurance data in structured format; 3) Status tracking — claim progress without back-and-forth emails
-  - 👥 Thread includes: Olivier Schweizer (schweizer@dinvest.ag), Yariv Binnun
+  - 👥 Thread includes: Olivier Schweizer (schweizer@dinvest.ag), Yariv Binnun, Idan
+  - **Next steps / owners:**
+    - [ ] **François** — follow up on DB dump feasibility + provision CRM access for Boaz & Olivier
+    - [ ] **Olivier** — set up CRM onboarding meeting once access is ready (walkthrough of how PMs use BAYO day-to-day)
 
 ## Someday
