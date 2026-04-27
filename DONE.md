@@ -1,7 +1,15 @@
 # Done Tasks
 *Newest week first. Managed by Claude — tasks are moved here from TASKS.md when completed.*
 
+## Week of Apr 27, 2026
+- [x] **[Onboarding App] New Employee Onboarding** — Onboarding completed for Ryan Gauci-Maistre (started 2026-04-16) and Dominik Inguanta (started 2026-05-01) | done: 2026-04-27
+
+## Week of Apr 20, 2026
+- [x] **[Dinvest M&A] Build M&A Process Management CRM** — CRM app for brokers + Dinvest management to manage M&A pipeline (sourcing, broker collaboration, due diligence, closing). Mockup live at https://dinvest-crm-ma.lovable.app/ | done: 2026-04-26
+- [x] **[Dinvest] RobinReal.ai Demo** — Demo with Sebastian Waszkis (CEO) held 2026-04-22; strong fit, shared vision; follow-up actions opened in new task #4 | done: 2026-04-22
+
 ## Week of Apr 13, 2026
+- [x] **[Dinvest Website] Remove Org Chart Section from About Us Page** — Ilya removed the Org Chart section from the Dinvest About Us page | done: 2026-04-16
 - [x] **[Power BI] Owner Dashboard KPI Fields** — Idan added 6 new Netto-based KPIs, renamed 2 existing fields, retired 6 old Brutto/Akonto cards | done: 2026-04-15
 - [x] **[Dinvest Checklisten] Miriam — Open Process Questions (Mieterwechsel Phase 3 / Kaution)** — All 5 questions answered by Miriam Sanchez; Einstellplatz kaution scope clarified | done: 2026-04-14
 - [x] **[Dinvest] Reporting Walkthrough with Ruslan & David** — Walked through Power BI + WW Portal live with Ruslan Marakhovskii & David Gast (NY) | done: 2026-04-14
