@@ -9,7 +9,7 @@
   - 👤 Working with: Yariv
   - 🎯 Next step: review with Yariv → finalize → hand off to dev
 
-- [ ] **[Dinvest] RobinReal.ai Partnership Follow-up** - Demo on 2026-04-22 went well — strong shared vision, AI agents reduce manual re-letting work, full two-way API. Sebastian (CEO) connected with Idan for in-depth technical check. Awaiting Idan's feedback. | #4 | added: 2026-04-23 | updated: 2026-04-26
+- [ ] **[Dinvest] RobinReal.ai Partnership Follow-up** - Demo on 2026-04-22 went well — strong shared vision, AI agents reduce manual re-letting work, full two-way API. Idan had a video call with RobinReal team; next step is in-person meeting during Idan's next visit to Basel. | #4 | added: 2026-04-23 | updated: 2026-05-04
   - 👤 Sebastian Waszkis, CEO & Co-Founder | 📧 sebastian@robinreal.ai | 📞 +41 79 959 42 55
   - 👤 Philipp Braune | 📧 philipp@robinreal.ai
   - 🔗 robinreal.ai
@@ -17,7 +17,8 @@
   - ⚠️ **Downsides:** no integration with Immotop or Everest yet — Immotop likely solvable from our side (we already have the data + know when tenant submits move-out)
   - [x] ✅ Demo took place 2026-04-22
   - [x] ✅ Sebastian (CEO) connected with Idan for in-depth technical check
-  - [ ] **Follow up with Idan** on outcome of technical deep-dive with RobinReal team
+  - [x] ✅ Idan had video call with RobinReal team
+  - [ ] **In-person meeting** with RobinReal — to happen on Idan's next visit to Basel
   - [ ] **Explore Immotop integration from Dinvest side** — leverage existing data + move-out trigger to push to RobinReal
   - [ ] **Follow up with Sebastian on optimal process flow** (he proposed in 2026-04-22 follow-up email)
   - 📎 Slides shared by Sebastian post-demo
@@ -109,6 +110,4 @@
   - 👥 Thread includes: Olivier Schweizer (schweizer@dinvest.ag), Yariv Binnun, Idan
   - **Next steps / owners:**
     - [ ] **François** — follow up on DB dump feasibility + provision CRM access for Boaz & Olivier
-    - [ ] **Olivier** — set up CRM onboarding meeting once access is ready (walkthrough of how PMs use BAYO day-to-day)
-
-## Someday
+    - [ ] **Olivier** — set up CRM onboarding meeting once a
