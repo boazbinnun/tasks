@@ -1,6 +1,10 @@
 # Done Tasks
 *Newest week first. Managed by Claude — tasks are moved here from TASKS.md when completed.*
 
+## Week of May 4, 2026
+- [x] **[Internal] Create Claude Presentation for Team** — Presented to Yariv & Itay; showcase with Olivier completed | done: 2026-05-04
+- [x] **[Zoho] Ticket Routing Rules** — Philipp → Olivier → Idan routing rules chain completed and implemented | done: 2026-05-04
+
 ## Week of Apr 27, 2026
 - [x] **[Onboarding App] New Employee Onboarding** — Onboarding completed for Ryan Gauci-Maistre (started 2026-04-16) and Dominik Inguanta (started 2026-05-01) | done: 2026-04-27
 
