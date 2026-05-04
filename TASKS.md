@@ -4,10 +4,6 @@
 *Boaz's own tasks*
 
 
-- [ ] **[Internal] Create Claude Presentation for Team** - Prepare and present a presentation on Claude to the team | #1 | added: 2026-03-29 | updated: 2026-03-29
-  - [x] Presented to Yariv & Itay ✅
-  - [ ] Showcase meeting still needed with Olivier
-
 - [ ] **[Dinvest] Owner Portal Mockup — Fine-Tuning & Dev Handoff** - Mockup in final stages; work with Yariv to fine-tune and prepare for development phase | #2 | added: 2026-04-07 | updated: 2026-04-07
   - 🔗 Mockup: https://owner-portal-mockup.lovable.app/
   - 👤 Working with: Yariv
@@ -73,7 +69,16 @@
   - [ ] Olivier to coordinate meeting directly with Oliver Meyer
   - [ ] Boaz to join the meeting once scheduled
 
-- [ ] **[Zoho] Ticket Routing Rules** → **Philipp → Olivier → Idan** - Philipp sends current routing rules to Olivier; Olivier reviews and forwards to Idan; Idan implements | #14 | raised by: Philipp | updated: 2026-04-14
+- [ ] **[Dinvest / imofix] Competence Sum Integration — 3 Changes** → **Idan** - Philipp Meisel (imofix) confirmed integration is live on staging. Idan needs to implement 3 changes before imofix deploys to production. | #19 | raised by: Philipp Meisel (imofix) | added: 2026-04-28 | updated: 2026-04-28
+  - 🔗 Staging: http://staging--imofix.netlify.app/dinvest
+  - 🔗 Linear: https://linear.app/idanc/issue/DIN-538/competence-sum-integations-with-imofix
+  - 👤 Philipp Meisel | 📧 philipp.meisel@imofix.io
+  - **Required changes (from imofix before they deploy):**
+    - [ ] Rename column header to: `order_credit_limit`
+    - [ ] Numbers without decimals — e.g. `1000` instead of `1000.00`
+    - [ ] Do not use `0` — leave column empty instead
+  - [ ] **Idan** to implement the 3 changes above
+  - [ ] Follow up with Philipp once deployed to confirm all good
 
 ## Waiting On
 
