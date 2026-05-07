@@ -49,7 +49,8 @@
   - [ ] **Idan** — Linear ticket to be opened for implementation once direction confirmed
   - [ ] Follow up if no team response within ~3–5 days
   - ⚠️ **Pre-build open questions:** single source of truth for "my properties" (likely eMonitor, confirm); overdue SLA rules per source (Olivier owns); v2 first vs v2+v3 together
- - Mockup ready; Miriam & Olivier need to update the data for Boaz's review before submitting to Idan for implementation | #6 | added: 2026-04-07 | updated: 2026-04-27
+
+- [ ] **[Dinvest Inhouse] Process Apps — Mieterwechsel, Mandatsaufnahme & Move-Out** → **Idan, Olivier, Miriam** - Mockup ready; Miriam & Olivier need to update the data for Boaz's review before submitting to Idan for implementation | #6 | added: 2026-04-07 | updated: 2026-04-27
   - 🎯 Next: Miriam & Olivier update data → Boaz reviews → hand off to Idan
   - **Track A — Mieterwechsel (TenantTurnover)** → **Idan**: Hand off POC to Idan for production build. Requires: PostgreSQL backend, auth, role-based access, deploy to inhouse.dinvest.ag
     - ✅ Miriam answered all 5 process questions 2026-04-14 — blocker resolved
@@ -137,6 +138,4 @@
   - 👥 Thread includes: Olivier Schweizer (schweizer@dinvest.ag), Yariv Binnun, Idan
   - **Next steps / owners:**
     - [ ] **François** — follow up on DB dump feasibility + provision CRM access for Boaz & Olivier
-    - [ ] **Olivier** — set up CRM onboarding meeting once access is ready (walkthrough of how PMs use BAYO day-to-day)
-
-## Someday
+    - [ ] **Olivi
