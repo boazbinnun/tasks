@@ -40,7 +40,16 @@
 *Tasks assigned to others — Boaz monitors progress*
 
 
-- [ ] **[Dinvest Checklisten] Checklist Platform — Mieterwechsel, MandateOnboarding & Move-Out** → **Miriam & Olivier** - Mockup ready; Miriam & Olivier need to update the data for Boaz's review before submitting to Idan for implementation | #6 | added: 2026-04-07 | updated: 2026-04-27
+- [ ] **[Dinvest Inhouse] PM Homepage Redesign — Complete View** → **Team & Idan** - Sent email proposing a more complete homepage view for property managers (and extensible to other roles). Today's homepage only shows what's directly assigned; PMs can't see open/overdue items across buildings they manage. New design: 6 dashboard tiles with dual-scope (To me / Portfolio) for tickets/requests/orders, single-scope tiles for invoices/insurance, merged vacancies tile with object list. Two mockup variants delivered (clean + gamified). | added: 2026-05-05 | updated: 2026-05-05
+  - 🔗 v2 mockup (clean): `dinvest-pm-dashboard-mockup-v2.html`
+  - 🔗 v3 mockup (gamified — badges, daily quests, level/streak): `dinvest-pm-dashboard-mockup-v3.html`
+  - 📧 Proposal email sent to team 2026-05-05
+  - 🎯 Tiles: Zoho Desk · Tenant Requests · Order Actions (all dual-scope) · Vacancies (Now/Soon, with object list modal) · SR Invoices · Insurance
+  - [ ] **Team** — review proposal and provide feedback (which version, scope changes, missing items)
+  - [ ] **Idan** — Linear ticket to be opened for implementation once direction confirmed
+  - [ ] Follow up if no team response within ~3–5 days
+  - ⚠️ **Pre-build open questions:** single source of truth for "my properties" (likely eMonitor, confirm); overdue SLA rules per source (Olivier owns); v2 first vs v2+v3 together
+ - Mockup ready; Miriam & Olivier need to update the data for Boaz's review before submitting to Idan for implementation | #6 | added: 2026-04-07 | updated: 2026-04-27
   - 🎯 Next: Miriam & Olivier update data → Boaz reviews → hand off to Idan
   - **Track A — Mieterwechsel (TenantTurnover)** → **Idan**: Hand off POC to Idan for production build. Requires: PostgreSQL backend, auth, role-based access, deploy to inhouse.dinvest.ag
     - ✅ Miriam answered all 5 process questions 2026-04-14 — blocker resolved
@@ -81,6 +90,24 @@
   - [ ] **Idan** to implement the 3 changes above
   - [ ] Follow up with Philipp once deployed to confirm all good
 
+- [ ] **[People Ops] Employee Offboarding Extension — Review & Feedback** → **Oli & Itay** - Sent email to Oli & Itay proposing to extend the People Ops app to cover employee offboarding. Shared AI-assisted task list with 16 tasks across 3 phases: legal & HR kickoff, handover & operations, and post-departure cleanup. Waiting for their review and feedback. | added: 2026-05-05 | updated: 2026-05-05
+  - 🎯 Goal: automate offboarding letters, emails, task assignment; ensure no loose ends (Zoho Desk access revoked, Imofix tasks closed, etc.)
+  - [ ] Oli & Itay to review task list and confirm or flag issues
+  - [ ] Follow up if no response within a few days
+
+- [ ] **[Dinvest Inhouse] Vendor Crafts Tool — Upgrade Proposal** → **Team** - Sent proposal to upgrade the Vendor Crafts tool (https://inhouse.dinvest.ag/tools/handwerker_crafts) into a full Handwerker management tool operable by the DM. Today's tool tags vendor crafts and marks Primary/Backup, but doesn't answer DM-level questions (regional defaults, gaps, housekeeping, building coverage). Proposal adds 3 new views + future AI review. Clickable mockup shared with team; awaiting feedback. | added: 2026-05-07 | updated: 2026-05-07
+  - 🔗 Current tool: https://inhouse.dinvest.ag/tools/handwerker_crafts
+  - 🔗 Mockup: https://assets.dinvest.ag/documents/vendor_crafts_extended_mockup.html
+  - 🎯 **Proposed views:**
+    - **1. By vendor (rebuilt)** — vendor-centric view with region (Basel/Zurich); ordered crafts with first as main craft
+    - **2. By building (new)** — pick a building, see craft coverage (building-specific + regional fallback), gaps, and housekeeping cases
+    - **3. Default list (new — main change)** — per region, see Primary & Backup for every craft; add/remove vendors directly; spot gaps, duplicates, missing setups; used by Imofix as routing fallback
+    - **4. AI review (future vision)** — "what should I fix today?" view for the domain manager
+  - 🎯 DM questions the upgrade should answer: default Handwerker per region; Primary+Backup coverage per main craft; housekeeping (too many Primaries, missing Primaries); per-building coverage & gaps; vendors assigned to building but missing from regional default list
+  - [ ] **Team** — review proposal and provide feedback
+  - [ ] Follow up if no team response within ~3–5 days
+  - [ ] Once direction confirmed → open Linear ticket for Idan
+
 ## Waiting On
 
 - [ ] **[Dinvest] Facility Management Software Research** - Evaluating FM software solutions for a joint venture in Swiss real estate. | #15 | since: 2026-03-25 | updated: 2026-04-14
@@ -110,4 +137,6 @@
   - 👥 Thread includes: Olivier Schweizer (schweizer@dinvest.ag), Yariv Binnun, Idan
   - **Next steps / owners:**
     - [ ] **François** — follow up on DB dump feasibility + provision CRM access for Boaz & Olivier
-    - [ ] **Olivier** — set up CRM onboarding meeting once a
+    - [ ] **Olivier** — set up CRM onboarding meeting once access is ready (walkthrough of how PMs use BAYO day-to-day)
+
+## Someday
